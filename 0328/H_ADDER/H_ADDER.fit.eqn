@@ -1,0 +1,36 @@
+--A1L6 is S~0 at LC3_12_Z4
+--operation mode is normal
+
+A1L6 = A $ B;
+
+
+--A1L4 is C_out~0 at LC3_6_Z4
+--operation mode is normal
+
+A1L4 = A & B;
+
+
+--A is A at PIN_AD22
+--operation mode is input
+
+A = INPUT();
+
+
+--B is B at PIN_AB21
+--operation mode is input
+
+B = INPUT();
+
+
+--S is S at PIN_AB18
+--operation mode is output
+
+S = OUTPUT(A1L6);
+
+
+--C_out is C_out at PIN_AD21
+--operation mode is output
+
+C_out = OUTPUT(A1L4);
+
+
