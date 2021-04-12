@@ -1,0 +1,42 @@
+--A1L7 is Sn~15
+--operation mode is normal
+
+A1L7 = Cn_1 $ Bn $ An;
+
+
+--A1L5 is Cn~67
+--operation mode is normal
+
+A1L5 = Bn & An # Cn_1 # !Bn & An & Cn_1;
+
+
+--Cn_1 is Cn_1
+--operation mode is input
+
+Cn_1 = INPUT();
+
+
+--Bn is Bn
+--operation mode is input
+
+Bn = INPUT();
+
+
+--An is An
+--operation mode is input
+
+An = INPUT();
+
+
+--Sn is Sn
+--operation mode is output
+
+Sn = OUTPUT(A1L7);
+
+
+--Cn is Cn
+--operation mode is output
+
+Cn = OUTPUT(A1L5);
+
+
