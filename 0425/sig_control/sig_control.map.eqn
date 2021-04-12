@@ -1,0 +1,77 @@
+--state.S0 is state.S0
+--operation mode is normal
+
+state.S0_lut_out = !state.S4 & !clear & state.S0 # X;
+state.S0 = DFFE(state.S0_lut_out, clock, , , );
+
+
+--state.S1 is state.S1
+--operation mode is normal
+
+state.S1_lut_out = X & !state.S0 & !clear;
+state.S1 = DFFE(state.S1_lut_out, clock, , , );
+
+
+--state.S3 is state.S3
+--operation mode is normal
+
+state.S3_lut_out = !clear & state.S2 # state.S3 & X;
+state.S3 = DFFE(state.S3_lut_out, clock, , , );
+
+
+--state.S4 is state.S4
+--operation mode is normal
+
+state.S4_lut_out = !X & !clear & state.S3;
+state.S4 = DFFE(state.S4_lut_out, clock, , , );
+
+
+--state.S2 is state.S2
+--operation mode is normal
+
+state.S2_lut_out = state.S1 & !clear;
+state.S2 = DFFE(state.S2_lut_out, clock, , , );
+
+
+--clear is clear
+--operation mode is input
+
+clear = INPUT();
+
+
+--X is X
+--operation mode is input
+
+X = INPUT();
+
+
+--clock is clock
+--operation mode is input
+
+clock = INPUT();
+
+
+--hwy[1] is hwy[1]
+--operation mode is output
+
+hwy[1] = OUTPUT(!state.S0);
+
+
+--hwy[0] is hwy[0]
+--operation mode is output
+
+hwy[0] = OUTPUT(state.S1);
+
+
+--cntry[1] is cntry[1]
+--operation mode is output
+
+cntry[1] = OUTPUT(state.S3);
+
+
+--cntry[0] is cntry[0]
+--operation mode is output
+
+cntry[0] = OUTPUT(state.S4);
+
+

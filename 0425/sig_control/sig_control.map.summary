@@ -1,0 +1,13 @@
+Flow Status : Successful - Wed Apr 25 12:55:01 2018
+Quartus II Version : 4.2 Build 157 12/07/2004 SJ Full Version
+Revision Name : sig_control
+Top-level Entity Name : sig_control
+Family : EXCALIBUR_ARM
+Device : EPXA4F672C3
+Timing Models : Final
+Met timing requirements : N/A
+Total logic elements : 5
+Total pins : 7
+Total virtual pins : 0
+Total memory bits : 0
+Total PLLs : 0

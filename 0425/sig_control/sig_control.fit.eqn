@@ -1,0 +1,77 @@
+--state.S0 is state.S0 at LC5_15_Z1
+--operation mode is normal
+
+state.S0_lut_out = !clear & !state.S4 & X # state.S0;
+state.S0 = DFFE(state.S0_lut_out, GLOBAL(clock), , , );
+
+
+--state.S1 is state.S1 at LC9_15_Z1
+--operation mode is normal
+
+state.S1_lut_out = X & !clear & !state.S0;
+state.S1 = DFFE(state.S1_lut_out, GLOBAL(clock), , , );
+
+
+--state.S3 is state.S3 at LC7_15_Z1
+--operation mode is normal
+
+state.S3_lut_out = !clear & state.S2 # X & state.S3;
+state.S3 = DFFE(state.S3_lut_out, GLOBAL(clock), , , );
+
+
+--state.S4 is state.S4 at LC6_15_Z1
+--operation mode is normal
+
+state.S4_lut_out = !X & !clear & state.S3;
+state.S4 = DFFE(state.S4_lut_out, GLOBAL(clock), , , );
+
+
+--state.S2 is state.S2 at LC3_15_Z1
+--operation mode is normal
+
+state.S2_lut_out = !clear & state.S1;
+state.S2 = DFFE(state.S2_lut_out, GLOBAL(clock), , , );
+
+
+--clear is clear at PIN_H2
+--operation mode is input
+
+clear = INPUT();
+
+
+--X is X at PIN_AC7
+--operation mode is input
+
+X = INPUT();
+
+
+--clock is clock at PIN_Y5
+--operation mode is input
+
+clock = INPUT();
+
+
+--hwy[1] is hwy[1] at PIN_V11
+--operation mode is output
+
+hwy[1] = OUTPUT(!state.S0);
+
+
+--hwy[0] is hwy[0] at PIN_AA10
+--operation mode is output
+
+hwy[0] = OUTPUT(state.S1);
+
+
+--cntry[1] is cntry[1] at PIN_AC10
+--operation mode is output
+
+cntry[1] = OUTPUT(state.S3);
+
+
+--cntry[0] is cntry[0] at PIN_AC9
+--operation mode is output
+
+cntry[0] = OUTPUT(state.S4);
+
+
