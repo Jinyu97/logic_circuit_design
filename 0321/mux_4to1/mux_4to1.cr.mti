@@ -1,0 +1,15 @@
+D:/lyj/mux_4to1/mux_4to1.v {1 {vlog -work work D:/lyj/mux_4to1/mux_4to1.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module mux_4to1
+
+Top level modules:
+	mux_4to1
+
+} {} {}} D:/lyj/mux_4to1/mux_4to1_tb.v {1 {vlog -work work D:/lyj/mux_4to1/mux_4to1_tb.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module mux_4to1_tb
+
+Top level modules:
+	mux_4to1_tb
+
+} {} {}}

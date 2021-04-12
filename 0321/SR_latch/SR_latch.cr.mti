@@ -1,0 +1,15 @@
+D:/lyj/SR_latch/Top.v {1 {vlog -work work D:/lyj/SR_latch/Top.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module Top
+
+Top level modules:
+	Top
+
+} {} {}} D:/lyj/SR_latch/SR_latch.v {1 {vlog -work work D:/lyj/SR_latch/SR_latch.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module SR_latch
+
+Top level modules:
+	SR_latch
+
+} {} {}}

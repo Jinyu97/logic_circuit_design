@@ -1,0 +1,15 @@
+D:/lyj/CNT_UP_DOWN/CNT_UP_DOWN.v {1 {vlog -work work D:/lyj/CNT_UP_DOWN/CNT_UP_DOWN.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module CNT_UP_DOWN
+
+Top level modules:
+	CNT_UP_DOWN
+
+} {} {}} D:/lyj/CNT_UP_DOWN/CNT_UP_DOWN_tb.v {1 {vlog -work work D:/lyj/CNT_UP_DOWN/CNT_UP_DOWN_tb.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module CNT_UP_DOWN_tb
+
+Top level modules:
+	CNT_UP_DOWN_tb
+
+} {} {}}
