@@ -1,0 +1,863 @@
+--B1_state[2] is keypad_scan:U0_keypad|state[2]
+--operation mode is normal
+
+B1_state[2]_lut_out = B1_state[1] & !B1_state[2] & !B1_state[0];
+B1_state[2] = DFFE(B1_state[2]_lut_out, !B1_clk1, !rst, , B1_key_stop);
+
+
+--B1_state[1] is keypad_scan:U0_keypad|state[1]
+--operation mode is normal
+
+B1_state[1]_lut_out = B1_state[0] & !B1_state[2] & !B1_state[1];
+B1_state[1] = DFFE(B1_state[1]_lut_out, !B1_clk1, !rst, , B1_key_stop);
+
+
+--B1_state[0] is keypad_scan:U0_keypad|state[0]
+--operation mode is normal
+
+B1_state[0]_lut_out = !B1_state[1] & !B1_state[0];
+B1_state[0] = DFFE(B1_state[0]_lut_out, !B1_clk1, !rst, , B1_key_stop);
+
+
+--C1_piezo_freq is piezo_tone:U0_piezo_tone|piezo_freq
+--operation mode is normal
+
+C1_piezo_freq_lut_out = !C1_piezo_freq;
+C1_piezo_freq = DFFE(C1_piezo_freq_lut_out, C1_clk1, !rst, , C1L05);
+
+
+--B1_clk1 is keypad_scan:U0_keypad|clk1
+--operation mode is normal
+
+B1_clk1_lut_out = !B1_clk1;
+B1_clk1 = DFFE(B1_clk1_lut_out, clk, !rst, , B1L2);
+
+
+--B1_key_stop is keypad_scan:U0_keypad|key_stop
+--operation mode is normal
+
+B1_key_stop = !key_row[0] & !key_row[2] & !key_row[1] & !key_row[3];
+
+
+--C1_clk1 is piezo_tone:U0_piezo_tone|clk1
+--operation mode is normal
+
+C1_clk1_lut_out = C1L85;
+C1_clk1 = DFFE(C1_clk1_lut_out, clk, , , !rst);
+
+
+--B1_key_data[7] is keypad_scan:U0_keypad|key_data[7]
+--operation mode is normal
+
+B1_key_data[7]_lut_out = B1_state[1] & B1L61 & !B1_state[2] & !B1_state[0];
+B1_key_data[7] = DFFE(B1_key_data[7]_lut_out, !B1_clk1, , , );
+
+
+--B1_key_data[6] is keypad_scan:U0_keypad|key_data[6]
+--operation mode is normal
+
+B1_key_data[6]_lut_out = B1_state[0] & B1L61 & !B1_state[2] & !B1_state[1];
+B1_key_data[6] = DFFE(B1_key_data[6]_lut_out, !B1_clk1, , , );
+
+
+--B1_key_data[4] is keypad_scan:U0_keypad|key_data[4]
+--operation mode is normal
+
+B1_key_data[4]_lut_out = B1_state[1] & B1L71 & !B1_state[2] & !B1_state[0];
+B1_key_data[4] = DFFE(B1_key_data[4]_lut_out, !B1_clk1, , , );
+
+
+--C1L04 is piezo_tone:U0_piezo_tone|reduce_nor~992
+--operation mode is normal
+
+C1L04 = !B1_key_data[7] & !B1_key_data[6] & !B1_key_data[4];
+
+
+--B1_key_data[0] is keypad_scan:U0_keypad|key_data[0]
+--operation mode is normal
+
+B1_key_data[0]_lut_out = B1_state[0] & B1L81 & !B1_state[2] & !B1_state[1];
+B1_key_data[0] = DFFE(B1_key_data[0]_lut_out, !B1_clk1, , , );
+
+
+--B1_key_data[5] is keypad_scan:U0_keypad|key_data[5]
+--operation mode is normal
+
+B1_key_data[5]_lut_out = B1L71 & B1_state[2] & !B1_state[1] & !B1_state[0];
+B1_key_data[5] = DFFE(B1_key_data[5]_lut_out, !B1_clk1, , , );
+
+
+--C1L14 is piezo_tone:U0_piezo_tone|reduce_nor~993
+--operation mode is normal
+
+C1L14 = C1L04 & !B1_key_data[0] & !B1_key_data[5];
+
+
+--B1_key_data[1] is keypad_scan:U0_keypad|key_data[1]
+--operation mode is normal
+
+B1_key_data[1]_lut_out = B1_state[1] & B1L81 & !B1_state[2] & !B1_state[0];
+B1_key_data[1] = DFFE(B1_key_data[1]_lut_out, !B1_clk1, , , );
+
+
+--B1_key_data[3] is keypad_scan:U0_keypad|key_data[3]
+--operation mode is normal
+
+B1_key_data[3]_lut_out = B1_state[0] & B1L71 & !B1_state[2] & !B1_state[1];
+B1_key_data[3] = DFFE(B1_key_data[3]_lut_out, !B1_clk1, , , );
+
+
+--B1_key_data[2] is keypad_scan:U0_keypad|key_data[2]
+--operation mode is normal
+
+B1_key_data[2]_lut_out = B1_state[2] & B1L81 & !B1_state[1] & !B1_state[0];
+B1_key_data[2] = DFFE(B1_key_data[2]_lut_out, !B1_clk1, , , );
+
+
+--C1L23 is piezo_tone:U0_piezo_tone|reduce_nor~2
+--operation mode is normal
+
+C1L23 = C1L14 & B1_key_data[1] & !B1_key_data[3] & !B1_key_data[2];
+
+
+--E2_sload_path[0] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[0]
+--operation mode is qfbk_counter
+
+E2_sload_path[0]_lut_out = !E2_sload_path[0];
+E2_sload_path[0]_reg_input = !C1L05 & E2_sload_path[0]_lut_out;
+E2_sload_path[0] = DFFE(E2_sload_path[0]_reg_input, C1_clk1, !rst, , );
+
+--E2L3 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[0]~COUT
+--operation mode is qfbk_counter
+
+E2L3 = CARRY(E2_sload_path[0]);
+
+
+--C1L61 is piezo_tone:U0_piezo_tone|always2~0
+--operation mode is normal
+
+C1L61 = C1L23 $ E2_sload_path[0];
+
+
+--E2_sload_path[6] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[6]
+--operation mode is counter
+
+E2_sload_path[6]_lut_out = E2_sload_path[6] $ (!E2L31);
+E2_sload_path[6]_reg_input = !C1L05 & E2_sload_path[6]_lut_out;
+E2_sload_path[6] = DFFE(E2_sload_path[6]_reg_input, C1_clk1, !rst, , );
+
+--E2L51 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[6]~COUT
+--operation mode is counter
+
+E2L51 = CARRY(E2_sload_path[6] & !E2L31);
+
+
+--C1L24 is piezo_tone:U0_piezo_tone|reduce_nor~994
+--operation mode is normal
+
+C1L24 = !B1_key_data[0] & !B1_key_data[1];
+
+
+--C1L93 is piezo_tone:U0_piezo_tone|reduce_nor~289
+--operation mode is normal
+
+C1L93 = B1_key_data[7] & !B1_key_data[6] & !B1_key_data[5] & !B1_key_data[4] # !B1_key_data[7] & B1_key_data[6] & !B1_key_data[5] & !B1_key_data[4] # !B1_key_data[6] & B1_key_data[5] $ B1_key_data[4];
+
+
+--C1L34 is piezo_tone:U0_piezo_tone|reduce_nor~995
+--operation mode is normal
+
+C1L34 = C1L24 & C1L93 & !B1_key_data[3] & !B1_key_data[2];
+
+
+--C1L44 is piezo_tone:U0_piezo_tone|reduce_nor~996
+--operation mode is normal
+
+C1L44 = B1_key_data[3] & !B1_key_data[2] & !B1_key_data[0] & !B1_key_data[1] # !B1_key_data[3] & B1_key_data[2] & !B1_key_data[0] & !B1_key_data[1] # !B1_key_data[2] & B1_key_data[0] $ B1_key_data[1];
+
+
+--C1L54 is piezo_tone:U0_piezo_tone|reduce_nor~997
+--operation mode is normal
+
+C1L54 = C1L34 # C1L04 & C1L44 & !B1_key_data[5];
+
+
+--C1L64 is piezo_tone:U0_piezo_tone|reduce_nor~998
+--operation mode is normal
+
+C1L64 = B1_key_data[0] & !B1_key_data[1] & !B1_key_data[3] & !B1_key_data[2];
+
+
+--C1L74 is piezo_tone:U0_piezo_tone|reduce_nor~999
+--operation mode is normal
+
+C1L74 = !B1_key_data[0] & !B1_key_data[1] & !B1_key_data[3] & !B1_key_data[2];
+
+
+--C1L95 is piezo_tone:U0_piezo_tone|reduce_or~83
+--operation mode is normal
+
+C1L95 = B1_key_data[5] & !C1L74 # !B1_key_data[5] & !C1L64 # !C1L04;
+
+
+--C1L84 is piezo_tone:U0_piezo_tone|reduce_nor~1000
+--operation mode is normal
+
+C1L84 = C1L61 # E2_sload_path[6] $ (C1L54 & C1L95);
+
+
+--E2_sload_path[4] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[4]
+--operation mode is counter
+
+E2_sload_path[4]_lut_out = E2_sload_path[4] $ (!E2L9);
+E2_sload_path[4]_reg_input = !C1L05 & E2_sload_path[4]_lut_out;
+E2_sload_path[4] = DFFE(E2_sload_path[4]_reg_input, C1_clk1, !rst, , );
+
+--E2L11 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[4]~COUT
+--operation mode is counter
+
+E2L11 = CARRY(E2_sload_path[4] & !E2L9);
+
+
+--C1L43 is piezo_tone:U0_piezo_tone|reduce_nor~4
+--operation mode is normal
+
+C1L43 = C1L14 & B1_key_data[3] & !B1_key_data[1] & !B1_key_data[2];
+
+
+--C1L94 is piezo_tone:U0_piezo_tone|reduce_nor~1001
+--operation mode is normal
+
+C1L94 = C1L84 # E2_sload_path[4] $ (!C1L43 & C1L54);
+
+
+--C1L05 is piezo_tone:U0_piezo_tone|reduce_nor~1005
+--operation mode is normal
+
+C1L05 = !C1L94 & C1L55 & C1L65 & C1L75;
+
+
+--E1_sload_path[11] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[11]
+--operation mode is counter
+
+E1_sload_path[11]_lut_out = E1_sload_path[11] $ (E1L32);
+E1_sload_path[11]_reg_input = !B1L2 & E1_sload_path[11]_lut_out;
+E1_sload_path[11] = DFFE(E1_sload_path[11]_reg_input, clk, !rst, , );
+
+--E1L52 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[11]~COUT
+--operation mode is counter
+
+E1L52 = CARRY(!E1L32 # !E1_sload_path[11]);
+
+
+--E1_sload_path[10] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[10]
+--operation mode is counter
+
+E1_sload_path[10]_lut_out = E1_sload_path[10] $ (!E1L12);
+E1_sload_path[10]_reg_input = !B1L2 & E1_sload_path[10]_lut_out;
+E1_sload_path[10] = DFFE(E1_sload_path[10]_reg_input, clk, !rst, , );
+
+--E1L32 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[10]~COUT
+--operation mode is counter
+
+E1L32 = CARRY(E1_sload_path[10] & !E1L12);
+
+
+--E1_sload_path[9] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[9]
+--operation mode is counter
+
+E1_sload_path[9]_lut_out = E1_sload_path[9] $ (E1L91);
+E1_sload_path[9]_reg_input = !B1L2 & E1_sload_path[9]_lut_out;
+E1_sload_path[9] = DFFE(E1_sload_path[9]_reg_input, clk, !rst, , );
+
+--E1L12 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[9]~COUT
+--operation mode is counter
+
+E1L12 = CARRY(!E1L91 # !E1_sload_path[9]);
+
+
+--E1_sload_path[8] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[8]
+--operation mode is counter
+
+E1_sload_path[8]_lut_out = E1_sload_path[8] $ (!E1L71);
+E1_sload_path[8]_reg_input = !B1L2 & E1_sload_path[8]_lut_out;
+E1_sload_path[8] = DFFE(E1_sload_path[8]_reg_input, clk, !rst, , );
+
+--E1L91 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[8]~COUT
+--operation mode is counter
+
+E1L91 = CARRY(E1_sload_path[8] & !E1L71);
+
+
+--B1L3 is keypad_scan:U0_keypad|LessThan~195
+--operation mode is normal
+
+B1L3 = !E1_sload_path[11] & !E1_sload_path[10] & !E1_sload_path[9] & !E1_sload_path[8];
+
+
+--E1_sload_path[1] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[1]
+--operation mode is counter
+
+E1_sload_path[1]_lut_out = E1_sload_path[1] $ (E1L3);
+E1_sload_path[1]_reg_input = !B1L2 & E1_sload_path[1]_lut_out;
+E1_sload_path[1] = DFFE(E1_sload_path[1]_reg_input, clk, !rst, , );
+
+--E1L5 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[1]~COUT
+--operation mode is counter
+
+E1L5 = CARRY(!E1L3 # !E1_sload_path[1]);
+
+
+--E1_sload_path[0] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[0]
+--operation mode is qfbk_counter
+
+E1_sload_path[0]_lut_out = !E1_sload_path[0];
+E1_sload_path[0]_reg_input = !B1L2 & E1_sload_path[0]_lut_out;
+E1_sload_path[0] = DFFE(E1_sload_path[0]_reg_input, clk, !rst, , );
+
+--E1L3 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[0]~COUT
+--operation mode is qfbk_counter
+
+E1L3 = CARRY(E1_sload_path[0]);
+
+
+--E1_sload_path[3] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[3]
+--operation mode is counter
+
+E1_sload_path[3]_lut_out = E1_sload_path[3] $ (E1L7);
+E1_sload_path[3]_reg_input = !B1L2 & E1_sload_path[3]_lut_out;
+E1_sload_path[3] = DFFE(E1_sload_path[3]_reg_input, clk, !rst, , );
+
+--E1L9 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[3]~COUT
+--operation mode is counter
+
+E1L9 = CARRY(!E1L7 # !E1_sload_path[3]);
+
+
+--E1_sload_path[2] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[2]
+--operation mode is counter
+
+E1_sload_path[2]_lut_out = E1_sload_path[2] $ (!E1L5);
+E1_sload_path[2]_reg_input = !B1L2 & E1_sload_path[2]_lut_out;
+E1_sload_path[2] = DFFE(E1_sload_path[2]_reg_input, clk, !rst, , );
+
+--E1L7 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[2]~COUT
+--operation mode is counter
+
+E1L7 = CARRY(E1_sload_path[2] & !E1L5);
+
+
+--B1L4 is keypad_scan:U0_keypad|LessThan~196
+--operation mode is normal
+
+B1L4 = !E1_sload_path[3] & !E1_sload_path[2] & !E1_sload_path[0] # !E1_sload_path[1];
+
+
+--E1_sload_path[4] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[4]
+--operation mode is counter
+
+E1_sload_path[4]_lut_out = E1_sload_path[4] $ (!E1L9);
+E1_sload_path[4]_reg_input = !B1L2 & E1_sload_path[4]_lut_out;
+E1_sload_path[4] = DFFE(E1_sload_path[4]_reg_input, clk, !rst, , );
+
+--E1L11 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[4]~COUT
+--operation mode is counter
+
+E1L11 = CARRY(E1_sload_path[4] & !E1L9);
+
+
+--E1_sload_path[5] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[5]
+--operation mode is counter
+
+E1_sload_path[5]_lut_out = E1_sload_path[5] $ (E1L11);
+E1_sload_path[5]_reg_input = !B1L2 & E1_sload_path[5]_lut_out;
+E1_sload_path[5] = DFFE(E1_sload_path[5]_reg_input, clk, !rst, , );
+
+--E1L31 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[5]~COUT
+--operation mode is counter
+
+E1L31 = CARRY(!E1L11 # !E1_sload_path[5]);
+
+
+--B1L5 is keypad_scan:U0_keypad|LessThan~197
+--operation mode is normal
+
+B1L5 = !E1_sload_path[5] & B1L4 # !E1_sload_path[4];
+
+
+--E1_sload_path[7] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[7]
+--operation mode is counter
+
+E1_sload_path[7]_lut_out = E1_sload_path[7] $ (E1L51);
+E1_sload_path[7]_reg_input = !B1L2 & E1_sload_path[7]_lut_out;
+E1_sload_path[7] = DFFE(E1_sload_path[7]_reg_input, clk, !rst, , );
+
+--E1L71 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[7]~COUT
+--operation mode is counter
+
+E1L71 = CARRY(!E1L51 # !E1_sload_path[7]);
+
+
+--E1_sload_path[6] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[6]
+--operation mode is counter
+
+E1_sload_path[6]_lut_out = E1_sload_path[6] $ (!E1L31);
+E1_sload_path[6]_reg_input = !B1L2 & E1_sload_path[6]_lut_out;
+E1_sload_path[6] = DFFE(E1_sload_path[6]_reg_input, clk, !rst, , );
+
+--E1L51 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[6]~COUT
+--operation mode is counter
+
+E1L51 = CARRY(E1_sload_path[6] & !E1L31);
+
+
+--B1L1 is keypad_scan:U0_keypad|LessThan~104
+--operation mode is normal
+
+B1L1 = B1L3 & B1L5 # !E1_sload_path[6] # !E1_sload_path[7];
+
+
+--E1_sload_path[13] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[13]
+--operation mode is normal
+
+E1_sload_path[13]_lut_out = E1_sload_path[13] $ (E1L72);
+E1_sload_path[13]_reg_input = !B1L2 & E1_sload_path[13]_lut_out;
+E1_sload_path[13] = DFFE(E1_sload_path[13]_reg_input, clk, !rst, , );
+
+
+--E1_sload_path[12] is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|sload_path[12]
+--operation mode is counter
+
+E1_sload_path[12]_lut_out = E1_sload_path[12] $ (!E1L52);
+E1_sload_path[12]_reg_input = !B1L2 & E1_sload_path[12]_lut_out;
+E1_sload_path[12] = DFFE(E1_sload_path[12]_reg_input, clk, !rst, , );
+
+--E1L72 is keypad_scan:U0_keypad|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter|counter_cell[12]~COUT
+--operation mode is counter
+
+E1L72 = CARRY(E1_sload_path[12] & !E1L52);
+
+
+--B1L2 is keypad_scan:U0_keypad|LessThan~110
+--operation mode is normal
+
+B1L2 = !B1L1 & E1_sload_path[13] & E1_sload_path[12];
+
+
+--B1L61 is keypad_scan:U0_keypad|key_data~141
+--operation mode is normal
+
+B1L61 = key_row[2] & !key_row[0] & !key_row[3] & !key_row[1];
+
+
+--B1L71 is keypad_scan:U0_keypad|key_data~144
+--operation mode is normal
+
+B1L71 = key_row[1] & !key_row[0] & !key_row[3] & !key_row[2];
+
+
+--B1L81 is keypad_scan:U0_keypad|key_data~146
+--operation mode is normal
+
+B1L81 = key_row[0] & !key_row[2] & !key_row[1] & !key_row[3];
+
+
+--E2_sload_path[5] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[5]
+--operation mode is counter
+
+E2_sload_path[5]_lut_out = E2_sload_path[5] $ (E2L11);
+E2_sload_path[5]_reg_input = !C1L05 & E2_sload_path[5]_lut_out;
+E2_sload_path[5] = DFFE(E2_sload_path[5]_reg_input, C1_clk1, !rst, , );
+
+--E2L31 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[5]~COUT
+--operation mode is counter
+
+E2L31 = CARRY(!E2L11 # !E2_sload_path[5]);
+
+
+--E2_sload_path[3] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[3]
+--operation mode is counter
+
+E2_sload_path[3]_lut_out = E2_sload_path[3] $ (E2L7);
+E2_sload_path[3]_reg_input = !C1L05 & E2_sload_path[3]_lut_out;
+E2_sload_path[3] = DFFE(E2_sload_path[3]_reg_input, C1_clk1, !rst, , );
+
+--E2L9 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[3]~COUT
+--operation mode is counter
+
+E2L9 = CARRY(!E2L7 # !E2_sload_path[3]);
+
+
+--E2_sload_path[2] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[2]
+--operation mode is counter
+
+E2_sload_path[2]_lut_out = E2_sload_path[2] $ (!E2L5);
+E2_sload_path[2]_reg_input = !C1L05 & E2_sload_path[2]_lut_out;
+E2_sload_path[2] = DFFE(E2_sload_path[2]_reg_input, C1_clk1, !rst, , );
+
+--E2L7 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[2]~COUT
+--operation mode is counter
+
+E2L7 = CARRY(E2_sload_path[2] & !E2L5);
+
+
+--C1L15 is piezo_tone:U0_piezo_tone|reduce_nor~1012
+--operation mode is normal
+
+C1L15 = !B1_key_data[3] & !B1_key_data[2];
+
+
+--C1L06 is piezo_tone:U0_piezo_tone|reduce_or~84
+--operation mode is normal
+
+C1L06 = C1L54 & !C1L15 # !B1_key_data[1] # !C1L14;
+
+
+--C1L63 is piezo_tone:U0_piezo_tone|reduce_nor~6
+--operation mode is normal
+
+C1L63 = C1L74 & B1_key_data[5] & C1L04;
+
+
+--C1L25 is piezo_tone:U0_piezo_tone|reduce_nor~1013
+--operation mode is normal
+
+C1L25 = C1L15 & !B1_key_data[5] & !B1_key_data[0] & !B1_key_data[1];
+
+
+--C1L53 is piezo_tone:U0_piezo_tone|reduce_nor~5
+--operation mode is normal
+
+C1L53 = C1L25 & B1_key_data[4] & !B1_key_data[7] & !B1_key_data[6];
+
+
+--E2_sload_path[7] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[7]
+--operation mode is counter
+
+E2_sload_path[7]_lut_out = E2_sload_path[7] $ (E2L51);
+E2_sload_path[7]_reg_input = !C1L05 & E2_sload_path[7]_lut_out;
+E2_sload_path[7] = DFFE(E2_sload_path[7]_reg_input, C1_clk1, !rst, , );
+
+--E2L71 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[7]~COUT
+--operation mode is counter
+
+E2L71 = CARRY(!E2L51 # !E2_sload_path[7]);
+
+
+--C1L81 is piezo_tone:U0_piezo_tone|always2~7
+--operation mode is normal
+
+C1L81 = E2_sload_path[7] $ (C1L63 # C1L53 # !C1L06);
+
+
+--C1L73 is piezo_tone:U0_piezo_tone|reduce_nor~7
+--operation mode is normal
+
+C1L73 = C1L25 & B1_key_data[6] & !B1_key_data[7] & !B1_key_data[4];
+
+
+--C1L55 is piezo_tone:U0_piezo_tone|reduce_nor~1020
+--operation mode is normal
+
+C1L55 = (E2_sload_path[2] $ (C1L73 # C1L63 # !C1L06)) & CASCADE(C1L81);
+
+
+--C1L83 is piezo_tone:U0_piezo_tone|reduce_nor~8
+--operation mode is normal
+
+C1L83 = C1L25 & B1_key_data[7] & !B1_key_data[6] & !B1_key_data[4];
+
+
+--C1L16 is piezo_tone:U0_piezo_tone|reduce_or~85
+--operation mode is normal
+
+C1L16 = !C1L73 & !C1L83;
+
+
+--E2_sload_path[9] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[9]
+--operation mode is normal
+
+E2_sload_path[9]_lut_out = E2_sload_path[9] $ (E2L91);
+E2_sload_path[9]_reg_input = !C1L05 & E2_sload_path[9]_lut_out;
+E2_sload_path[9] = DFFE(E2_sload_path[9]_reg_input, C1_clk1, !rst, , );
+
+
+--C1L13 is piezo_tone:U0_piezo_tone|reduce_nor~1
+--operation mode is normal
+
+C1L13 = C1L04 & C1L64 & !B1_key_data[5];
+
+
+--E2_sload_path[8] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[8]
+--operation mode is counter
+
+E2_sload_path[8]_lut_out = E2_sload_path[8] $ (!E2L71);
+E2_sload_path[8]_reg_input = !C1L05 & E2_sload_path[8]_lut_out;
+E2_sload_path[8] = DFFE(E2_sload_path[8]_reg_input, C1_clk1, !rst, , );
+
+--E2L91 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[8]~COUT
+--operation mode is counter
+
+E2L91 = CARRY(E2_sload_path[8] & !E2L71);
+
+
+--C1L91 is piezo_tone:U0_piezo_tone|always2~8
+--operation mode is normal
+
+C1L91 = E2_sload_path[8] $ (C1L23 # C1L13 # !C1L16);
+
+
+--C1L35 is piezo_tone:U0_piezo_tone|reduce_nor~1015
+--operation mode is normal
+
+C1L35 = !C1L91 & E2_sload_path[9] $ (!C1L16 # !C1L54);
+
+
+--C1L65 is piezo_tone:U0_piezo_tone|reduce_nor~1021
+--operation mode is normal
+
+C1L65 = (E2_sload_path[5] $ (C1L43 # C1L83 # !C1L06)) & CASCADE(C1L35);
+
+
+--C1L33 is piezo_tone:U0_piezo_tone|reduce_nor~3
+--operation mode is normal
+
+C1L33 = C1L14 & B1_key_data[2] & !B1_key_data[1] & !B1_key_data[3];
+
+
+--C1L71 is piezo_tone:U0_piezo_tone|always2~3
+--operation mode is normal
+
+C1L71 = E2_sload_path[3] $ (C1L33 # !C1L06);
+
+
+--E2_sload_path[1] is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|sload_path[1]
+--operation mode is counter
+
+E2_sload_path[1]_lut_out = E2_sload_path[1] $ (E2L3);
+E2_sload_path[1]_reg_input = !C1L05 & E2_sload_path[1]_lut_out;
+E2_sload_path[1] = DFFE(E2_sload_path[1]_reg_input, C1_clk1, !rst, , );
+
+--E2L5 is piezo_tone:U0_piezo_tone|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter|counter_cell[1]~COUT
+--operation mode is counter
+
+E2L5 = CARRY(!E2L3 # !E2_sload_path[1]);
+
+
+--C1L75 is piezo_tone:U0_piezo_tone|reduce_nor~1022
+--operation mode is normal
+
+C1L75 = (E2_sload_path[1] $ (C1L43 # !C1L95 # !C1L54)) & CASCADE(C1L71);
+
+
+--C1_clk_count[0] is piezo_tone:U0_piezo_tone|clk_count[0]
+--operation mode is normal
+
+C1_clk_count[0]_lut_out = C1L1 & !rst;
+C1_clk_count[0] = DFFE(C1_clk_count[0]_lut_out, clk, , , );
+
+
+--C1_clk_count[2] is piezo_tone:U0_piezo_tone|clk_count[2]
+--operation mode is normal
+
+C1_clk_count[2]_lut_out = C1L5 & !rst;
+C1_clk_count[2] = DFFE(C1_clk_count[2]_lut_out, clk, , , );
+
+
+--C1_clk_count[1] is piezo_tone:U0_piezo_tone|clk_count[1]
+--operation mode is normal
+
+C1_clk_count[1]_lut_out = C1L3 & !rst & !C1L85;
+C1_clk_count[1] = DFFE(C1_clk_count[1]_lut_out, clk, , , );
+
+
+--C1_clk_count[7] is piezo_tone:U0_piezo_tone|clk_count[7]
+--operation mode is normal
+
+C1_clk_count[7]_lut_out = C1L51 & !rst;
+C1_clk_count[7] = DFFE(C1_clk_count[7]_lut_out, clk, , , );
+
+
+--C1L45 is piezo_tone:U0_piezo_tone|reduce_nor~1018
+--operation mode is normal
+
+C1L45 = C1_clk_count[0] & !C1_clk_count[2] & !C1_clk_count[1] & !C1_clk_count[7];
+
+
+--C1_clk_count[5] is piezo_tone:U0_piezo_tone|clk_count[5]
+--operation mode is normal
+
+C1_clk_count[5]_lut_out = C1L11 & !rst & !C1L85;
+C1_clk_count[5] = DFFE(C1_clk_count[5]_lut_out, clk, , , );
+
+
+--C1_clk_count[4] is piezo_tone:U0_piezo_tone|clk_count[4]
+--operation mode is normal
+
+C1_clk_count[4]_lut_out = C1L9 & !rst & !C1L85;
+C1_clk_count[4] = DFFE(C1_clk_count[4]_lut_out, clk, , , );
+
+
+--C1_clk_count[6] is piezo_tone:U0_piezo_tone|clk_count[6]
+--operation mode is normal
+
+C1_clk_count[6]_lut_out = C1L31 & !rst;
+C1_clk_count[6] = DFFE(C1_clk_count[6]_lut_out, clk, , , );
+
+
+--C1_clk_count[3] is piezo_tone:U0_piezo_tone|clk_count[3]
+--operation mode is normal
+
+C1_clk_count[3]_lut_out = C1L7 & !rst;
+C1_clk_count[3] = DFFE(C1_clk_count[3]_lut_out, clk, , , );
+
+
+--C1L85 is piezo_tone:U0_piezo_tone|reduce_nor~1023
+--operation mode is normal
+
+C1L85 = (C1_clk_count[5] & C1_clk_count[4] & !C1_clk_count[6] & !C1_clk_count[3]) & CASCADE(C1L45);
+
+
+--C1L1 is piezo_tone:U0_piezo_tone|add~132
+--operation mode is arithmetic
+
+C1L1 = !C1_clk_count[0];
+
+--C1L2 is piezo_tone:U0_piezo_tone|add~132COUT
+--operation mode is arithmetic
+
+C1L2 = CARRY(C1_clk_count[0]);
+
+
+--C1L5 is piezo_tone:U0_piezo_tone|add~134
+--operation mode is arithmetic
+
+C1L5 = C1_clk_count[2] $ (!C1L4);
+
+--C1L6 is piezo_tone:U0_piezo_tone|add~134COUT
+--operation mode is arithmetic
+
+C1L6 = CARRY(C1_clk_count[2] & !C1L4);
+
+
+--C1L3 is piezo_tone:U0_piezo_tone|add~133
+--operation mode is arithmetic
+
+C1L3 = C1_clk_count[1] $ (C1L2);
+
+--C1L4 is piezo_tone:U0_piezo_tone|add~133COUT
+--operation mode is arithmetic
+
+C1L4 = CARRY(!C1L2 # !C1_clk_count[1]);
+
+
+--C1L51 is piezo_tone:U0_piezo_tone|add~139
+--operation mode is normal
+
+C1L51 = C1_clk_count[7] $ (C1L41);
+
+
+--C1L11 is piezo_tone:U0_piezo_tone|add~137
+--operation mode is arithmetic
+
+C1L11 = C1_clk_count[5] $ (C1L01);
+
+--C1L21 is piezo_tone:U0_piezo_tone|add~137COUT
+--operation mode is arithmetic
+
+C1L21 = CARRY(!C1L01 # !C1_clk_count[5]);
+
+
+--C1L9 is piezo_tone:U0_piezo_tone|add~136
+--operation mode is arithmetic
+
+C1L9 = C1_clk_count[4] $ (!C1L8);
+
+--C1L01 is piezo_tone:U0_piezo_tone|add~136COUT
+--operation mode is arithmetic
+
+C1L01 = CARRY(C1_clk_count[4] & !C1L8);
+
+
+--C1L31 is piezo_tone:U0_piezo_tone|add~138
+--operation mode is arithmetic
+
+C1L31 = C1_clk_count[6] $ (!C1L21);
+
+--C1L41 is piezo_tone:U0_piezo_tone|add~138COUT
+--operation mode is arithmetic
+
+C1L41 = CARRY(C1_clk_count[6] & !C1L21);
+
+
+--C1L7 is piezo_tone:U0_piezo_tone|add~135
+--operation mode is arithmetic
+
+C1L7 = C1_clk_count[3] $ (C1L6);
+
+--C1L8 is piezo_tone:U0_piezo_tone|add~135COUT
+--operation mode is arithmetic
+
+C1L8 = CARRY(!C1L6 # !C1_clk_count[3]);
+
+
+--rst is rst
+--operation mode is input
+
+rst = INPUT();
+
+
+--key_row[0] is key_row[0]
+--operation mode is input
+
+key_row[0] = INPUT();
+
+
+--key_row[2] is key_row[2]
+--operation mode is input
+
+key_row[2] = INPUT();
+
+
+--key_row[1] is key_row[1]
+--operation mode is input
+
+key_row[1] = INPUT();
+
+
+--key_row[3] is key_row[3]
+--operation mode is input
+
+key_row[3] = INPUT();
+
+
+--clk is clk
+--operation mode is input
+
+clk = INPUT();
+
+
+--key_col[2] is key_col[2]
+--operation mode is output
+
+key_col[2] = OUTPUT(B1_state[2]);
+
+
+--key_col[1] is key_col[1]
+--operation mode is output
+
+key_col[1] = OUTPUT(B1_state[1]);
+
+
+--key_col[0] is key_col[0]
+--operation mode is output
+
+key_col[0] = OUTPUT(B1_state[0]);
+
+
+--piezo_out is piezo_out
+--operation mode is output
+
+piezo_out = OUTPUT(C1_piezo_freq);
+
+

@@ -1,0 +1,13 @@
+Flow Status : Successful - Fri May 25 15:57:21 2018
+Quartus II Version : 4.2 Build 157 12/07/2004 SJ Full Version
+Revision Name : piezo
+Top-level Entity Name : piezo
+Family : EXCALIBUR_ARM
+Device : EPXA4F672C3
+Timing Models : Final
+Met timing requirements : N/A
+Total logic elements : 98 / 16,640 ( < 1 % )
+Total pins : 10 / 463 ( 2 % )
+Total virtual pins : 0
+Total memory bits : 0 / 212,992 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
