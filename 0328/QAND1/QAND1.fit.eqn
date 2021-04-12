@@ -1,0 +1,24 @@
+--A1L4 is comb~0 at LC3_1_F4
+--operation mode is normal
+
+A1L4 = B & A;
+
+
+--A is A at PIN_T4
+--operation mode is input
+
+A = INPUT();
+
+
+--B is B at PIN_J25
+--operation mode is input
+
+B = INPUT();
+
+
+--Y is Y at PIN_U3
+--operation mode is output
+
+Y = OUTPUT(A1L4);
+
+
