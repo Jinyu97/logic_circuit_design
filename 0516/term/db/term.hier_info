@@ -1,0 +1,70 @@
+|term
+CLK => counts[12].CLK
+CLK => counts[11].CLK
+CLK => counts[10].CLK
+CLK => counts[9].CLK
+CLK => counts[8].CLK
+CLK => counts[7].CLK
+CLK => counts[6].CLK
+CLK => counts[5].CLK
+CLK => counts[4].CLK
+CLK => counts[3].CLK
+CLK => counts[2].CLK
+CLK => counts[1].CLK
+CLK => counts[0].CLK
+CLK => CLK1.CLK
+CLK => counts[13].CLK
+RESET => counts[12].ACLR
+RESET => counts[11].ACLR
+RESET => counts[10].ACLR
+RESET => counts[9].ACLR
+RESET => counts[8].ACLR
+RESET => counts[7].ACLR
+RESET => counts[6].ACLR
+RESET => counts[5].ACLR
+RESET => counts[4].ACLR
+RESET => counts[3].ACLR
+RESET => counts[2].ACLR
+RESET => counts[1].ACLR
+RESET => counts[0].ACLR
+RESET => CLK1.PRESET
+RESET => counts[13].ACLR
+SEG_C[0] <= SEG_DEC:U0.port1
+SEG_C[1] <= SEG_DEC:U0.port1
+SEG_C[2] <= SEG_DEC:U0.port1
+SEG_C[3] <= SEG_DEC:U0.port1
+SEG_C[4] <= SEG_DEC:U0.port1
+SEG_C[5] <= SEG_DEC:U0.port1
+SEG_C[6] <= SEG_DEC:U0.port1
+SEG_SEL[0] <= <VCC>
+SEG_SEL[1] <= <VCC>
+SEG_SEL[2] <= <VCC>
+SEG_SEL[3] <= <VCC>
+SEG_SEL[4] <= <VCC>
+SEG_SEL[5] <= SEG_SEL[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_SEL[6] <= <VCC>
+SEG_SEL[7] <= SEG_SEL[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+RAND1[0] => Select~3.IN0
+RAND1[1] => Select~2.IN0
+RAND1[2] => Select~1.IN0
+RAND1[3] => Select~0.IN0
+RAND2[0] => Select~3.IN1
+RAND2[1] => Select~2.IN1
+RAND2[2] => Select~1.IN1
+RAND2[3] => Select~0.IN1
+
+
+|term|SEG_DEC:U0
+DIGIT[0] => Decoder~0.IN3
+DIGIT[1] => Decoder~0.IN2
+DIGIT[2] => Decoder~0.IN1
+DIGIT[3] => Decoder~0.IN0
+SEG_DEC[0] <= SEG_DEC[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_DEC[1] <= SEG_DEC[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_DEC[2] <= SEG_DEC[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_DEC[3] <= SEG_DEC[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_DEC[4] <= SEG_DEC[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_DEC[5] <= SEG_DEC[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+SEG_DEC[6] <= SEG_DEC[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 26.428 ns
+From           : SEL_SEG[0]
+To             : SEG_C[0]
+From Clock     : CLK
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 24.009 ns
+From           : RAND1[2]
+To             : SEG_C[0]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLK'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 113.24 MHz ( period = 8.831 ns )
+From           : lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[7]
+To             : lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[9]
+From Clock     : CLK
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

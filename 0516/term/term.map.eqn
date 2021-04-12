@@ -1,0 +1,485 @@
+--SEL_SEG[0] is SEL_SEG[0]
+--operation mode is normal
+
+SEL_SEG[0]_lut_out = !SEL_SEG[0];
+SEL_SEG[0] = DFFE(SEL_SEG[0]_lut_out, CLK1, , , );
+
+
+--A1L83 is Select~109
+--operation mode is normal
+
+A1L83 = SEL_SEG[0] & RAND2[2] # !SEL_SEG[0] & RAND1[2];
+
+
+--B1L61 is SEG_DEC:U0|Select~197
+--operation mode is normal
+
+B1L61 = A1L83 # SEL_SEG[0] & RAND2[1] # !SEL_SEG[0] & RAND1[1];
+
+
+--A1L93 is Select~110
+--operation mode is normal
+
+A1L93 = SEL_SEG[0] & RAND2[3] # !SEL_SEG[0] & RAND1[3];
+
+
+--A1L04 is Select~111
+--operation mode is normal
+
+A1L04 = SEL_SEG[0] & RAND2[0] # !SEL_SEG[0] & RAND1[0];
+
+
+--A1L14 is Select~112
+--operation mode is normal
+
+A1L14 = SEL_SEG[0] & RAND2[1] # !SEL_SEG[0] & RAND1[1];
+
+
+--B1L9 is SEG_DEC:U0|Select~172
+--operation mode is normal
+
+B1L9 = A1L14 & !A1L93 & !A1L83 # !A1L04 # !A1L14 & A1L83 $ A1L93;
+
+
+--B1_SEG_DEC[6] is SEG_DEC:U0|SEG_DEC[6]
+--operation mode is normal
+
+B1_SEG_DEC[6] = B1L61 & A1L93 & B1_SEG_DEC[6] # !A1L93 & B1L9 # !B1L61 & B1L9;
+
+
+--B1L01 is SEG_DEC:U0|Select~174
+--operation mode is normal
+
+B1L01 = A1L04 & A1L14 # A1L83 $ !A1L93 # !A1L04 & A1L83 & A1L93 # !A1L83 & A1L14;
+
+
+--B1_SEG_DEC[5] is SEG_DEC:U0|SEG_DEC[5]
+--operation mode is normal
+
+B1_SEG_DEC[5] = B1L61 & A1L93 & B1_SEG_DEC[5] # !A1L93 & !B1L01 # !B1L61 & !B1L01;
+
+
+--B1L11 is SEG_DEC:U0|Select~176
+--operation mode is normal
+
+B1L11 = A1L04 # A1L14 & A1L93 # !A1L14 & A1L83;
+
+
+--B1_SEG_DEC[4] is SEG_DEC:U0|SEG_DEC[4]
+--operation mode is normal
+
+B1_SEG_DEC[4] = B1L61 & A1L93 & B1_SEG_DEC[4] # !A1L93 & !B1L11 # !B1L61 & !B1L11;
+
+
+--B1L21 is SEG_DEC:U0|Select~178
+--operation mode is normal
+
+B1L21 = A1L04 & A1L93 # A1L14 $ !A1L83 # !A1L04 & A1L14 & A1L93 # !A1L14 & A1L83;
+
+
+--B1_SEG_DEC[3] is SEG_DEC:U0|SEG_DEC[3]
+--operation mode is normal
+
+B1_SEG_DEC[3] = B1L61 & A1L93 & B1_SEG_DEC[3] # !A1L93 & !B1L21 # !B1L61 & !B1L21;
+
+
+--B1L31 is SEG_DEC:U0|Select~180
+--operation mode is normal
+
+B1L31 = A1L83 & A1L93 # !A1L83 & A1L14 & A1L93 # !A1L04;
+
+
+--B1_SEG_DEC[2] is SEG_DEC:U0|SEG_DEC[2]
+--operation mode is normal
+
+B1_SEG_DEC[2] = B1L61 & A1L93 & B1_SEG_DEC[2] # !A1L93 & !B1L31 # !B1L61 & !B1L31;
+
+
+--B1L41 is SEG_DEC:U0|Select~182
+--operation mode is normal
+
+B1L41 = A1L83 & A1L93 # A1L04 $ A1L14 # !A1L83 & A1L14 & A1L93;
+
+
+--B1_SEG_DEC[1] is SEG_DEC:U0|SEG_DEC[1]
+--operation mode is normal
+
+B1_SEG_DEC[1] = B1L61 & A1L93 & B1_SEG_DEC[1] # !A1L93 & !B1L41 # !B1L61 & !B1L41;
+
+
+--B1L51 is SEG_DEC:U0|Select~184
+--operation mode is normal
+
+B1L51 = A1L04 & A1L93 $ (!A1L14 & !A1L83) # !A1L04 & A1L83 # A1L14 & A1L93;
+
+
+--B1_SEG_DEC[0] is SEG_DEC:U0|SEG_DEC[0]
+--operation mode is normal
+
+B1_SEG_DEC[0] = B1L61 & A1L93 & B1_SEG_DEC[0] # !A1L93 & !B1L51 # !B1L61 & !B1L51;
+
+
+--CLK1 is CLK1
+--operation mode is normal
+
+CLK1_lut_out = !CLK1;
+CLK1 = DFFE(CLK1_lut_out, CLK, !RESET, , A1L7);
+
+
+--D1_sload_path[11] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[11]
+--operation mode is counter
+
+D1_sload_path[11]_lut_out = D1_sload_path[11] $ (D1L32);
+D1_sload_path[11]_reg_input = !A1L7 & D1_sload_path[11]_lut_out;
+D1_sload_path[11] = DFFE(D1_sload_path[11]_reg_input, CLK, !RESET, , );
+
+--D1L52 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[11]~COUT
+--operation mode is counter
+
+D1L52 = CARRY(!D1L32 # !D1_sload_path[11]);
+
+
+--D1_sload_path[10] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[10]
+--operation mode is counter
+
+D1_sload_path[10]_lut_out = D1_sload_path[10] $ (!D1L12);
+D1_sload_path[10]_reg_input = !A1L7 & D1_sload_path[10]_lut_out;
+D1_sload_path[10] = DFFE(D1_sload_path[10]_reg_input, CLK, !RESET, , );
+
+--D1L32 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[10]~COUT
+--operation mode is counter
+
+D1L32 = CARRY(D1_sload_path[10] & !D1L12);
+
+
+--D1_sload_path[9] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[9]
+--operation mode is counter
+
+D1_sload_path[9]_lut_out = D1_sload_path[9] $ (D1L91);
+D1_sload_path[9]_reg_input = !A1L7 & D1_sload_path[9]_lut_out;
+D1_sload_path[9] = DFFE(D1_sload_path[9]_reg_input, CLK, !RESET, , );
+
+--D1L12 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[9]~COUT
+--operation mode is counter
+
+D1L12 = CARRY(!D1L91 # !D1_sload_path[9]);
+
+
+--D1_sload_path[8] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[8]
+--operation mode is counter
+
+D1_sload_path[8]_lut_out = D1_sload_path[8] $ (!D1L71);
+D1_sload_path[8]_reg_input = !A1L7 & D1_sload_path[8]_lut_out;
+D1_sload_path[8] = DFFE(D1_sload_path[8]_reg_input, CLK, !RESET, , );
+
+--D1L91 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[8]~COUT
+--operation mode is counter
+
+D1L91 = CARRY(D1_sload_path[8] & !D1L71);
+
+
+--A1L3 is LessThan~324
+--operation mode is normal
+
+A1L3 = !D1_sload_path[11] & !D1_sload_path[10] & !D1_sload_path[9] & !D1_sload_path[8];
+
+
+--D1_sload_path[5] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[5]
+--operation mode is counter
+
+D1_sload_path[5]_lut_out = D1_sload_path[5] $ (D1L11);
+D1_sload_path[5]_reg_input = !A1L7 & D1_sload_path[5]_lut_out;
+D1_sload_path[5] = DFFE(D1_sload_path[5]_reg_input, CLK, !RESET, , );
+
+--D1L31 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[5]~COUT
+--operation mode is counter
+
+D1L31 = CARRY(!D1L11 # !D1_sload_path[5]);
+
+
+--D1_sload_path[4] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[4]
+--operation mode is counter
+
+D1_sload_path[4]_lut_out = D1_sload_path[4] $ (!D1L9);
+D1_sload_path[4]_reg_input = !A1L7 & D1_sload_path[4]_lut_out;
+D1_sload_path[4] = DFFE(D1_sload_path[4]_reg_input, CLK, !RESET, , );
+
+--D1L11 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[4]~COUT
+--operation mode is counter
+
+D1L11 = CARRY(D1_sload_path[4] & !D1L9);
+
+
+--D1_sload_path[7] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[7]
+--operation mode is counter
+
+D1_sload_path[7]_lut_out = D1_sload_path[7] $ (D1L51);
+D1_sload_path[7]_reg_input = !A1L7 & D1_sload_path[7]_lut_out;
+D1_sload_path[7] = DFFE(D1_sload_path[7]_reg_input, CLK, !RESET, , );
+
+--D1L71 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[7]~COUT
+--operation mode is counter
+
+D1L71 = CARRY(!D1L51 # !D1_sload_path[7]);
+
+
+--D1_sload_path[6] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[6]
+--operation mode is counter
+
+D1_sload_path[6]_lut_out = D1_sload_path[6] $ (!D1L31);
+D1_sload_path[6]_reg_input = !A1L7 & D1_sload_path[6]_lut_out;
+D1_sload_path[6] = DFFE(D1_sload_path[6]_reg_input, CLK, !RESET, , );
+
+--D1L51 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[6]~COUT
+--operation mode is counter
+
+D1L51 = CARRY(D1_sload_path[6] & !D1L31);
+
+
+--A1L4 is LessThan~325
+--operation mode is normal
+
+A1L4 = !D1_sload_path[5] & !D1_sload_path[4] # !D1_sload_path[6] # !D1_sload_path[7];
+
+
+--D1_sload_path[1] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[1]
+--operation mode is counter
+
+D1_sload_path[1]_lut_out = D1_sload_path[1] $ (D1L3);
+D1_sload_path[1]_reg_input = !A1L7 & D1_sload_path[1]_lut_out;
+D1_sload_path[1] = DFFE(D1_sload_path[1]_reg_input, CLK, !RESET, , );
+
+--D1L5 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[1]~COUT
+--operation mode is counter
+
+D1L5 = CARRY(!D1L3 # !D1_sload_path[1]);
+
+
+--D1_sload_path[0] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[0]
+--operation mode is qfbk_counter
+
+D1_sload_path[0]_lut_out = !D1_sload_path[0];
+D1_sload_path[0]_reg_input = !A1L7 & D1_sload_path[0]_lut_out;
+D1_sload_path[0] = DFFE(D1_sload_path[0]_reg_input, CLK, !RESET, , );
+
+--D1L3 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[0]~COUT
+--operation mode is qfbk_counter
+
+D1L3 = CARRY(D1_sload_path[0]);
+
+
+--D1_sload_path[3] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[3]
+--operation mode is counter
+
+D1_sload_path[3]_lut_out = D1_sload_path[3] $ (D1L7);
+D1_sload_path[3]_reg_input = !A1L7 & D1_sload_path[3]_lut_out;
+D1_sload_path[3] = DFFE(D1_sload_path[3]_reg_input, CLK, !RESET, , );
+
+--D1L9 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[3]~COUT
+--operation mode is counter
+
+D1L9 = CARRY(!D1L7 # !D1_sload_path[3]);
+
+
+--A1L5 is LessThan~326
+--operation mode is normal
+
+A1L5 = !D1_sload_path[5] & !D1_sload_path[3] & !D1_sload_path[0] # !D1_sload_path[1];
+
+
+--D1_sload_path[2] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[2]
+--operation mode is counter
+
+D1_sload_path[2]_lut_out = D1_sload_path[2] $ (!D1L5);
+D1_sload_path[2]_reg_input = !A1L7 & D1_sload_path[2]_lut_out;
+D1_sload_path[2] = DFFE(D1_sload_path[2]_reg_input, CLK, !RESET, , );
+
+--D1L7 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[2]~COUT
+--operation mode is counter
+
+D1L7 = CARRY(D1_sload_path[2] & !D1L5);
+
+
+--A1L6 is LessThan~327
+--operation mode is normal
+
+A1L6 = A1L3 & A1L4 # A1L5 & !D1_sload_path[2];
+
+
+--D1_sload_path[13] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[13]
+--operation mode is normal
+
+D1_sload_path[13]_lut_out = D1_sload_path[13] $ (D1L72);
+D1_sload_path[13]_reg_input = !A1L7 & D1_sload_path[13]_lut_out;
+D1_sload_path[13] = DFFE(D1_sload_path[13]_reg_input, CLK, !RESET, , );
+
+
+--D1_sload_path[12] is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|sload_path[12]
+--operation mode is counter
+
+D1_sload_path[12]_lut_out = D1_sload_path[12] $ (!D1L52);
+D1_sload_path[12]_reg_input = !A1L7 & D1_sload_path[12]_lut_out;
+D1_sload_path[12] = DFFE(D1_sload_path[12]_reg_input, CLK, !RESET, , );
+
+--D1L72 is lpm_counter:counts_rtl_0|alt_synch_counter:wysi_counter|counter_cell[12]~COUT
+--operation mode is counter
+
+D1L72 = CARRY(D1_sload_path[12] & !D1L52);
+
+
+--A1L7 is LessThan~328
+--operation mode is normal
+
+A1L7 = !A1L6 & D1_sload_path[13] & D1_sload_path[12];
+
+
+--RAND2[2] is RAND2[2]
+--operation mode is input
+
+RAND2[2] = INPUT();
+
+
+--RAND1[2] is RAND1[2]
+--operation mode is input
+
+RAND1[2] = INPUT();
+
+
+--RAND2[1] is RAND2[1]
+--operation mode is input
+
+RAND2[1] = INPUT();
+
+
+--RAND1[1] is RAND1[1]
+--operation mode is input
+
+RAND1[1] = INPUT();
+
+
+--RAND2[3] is RAND2[3]
+--operation mode is input
+
+RAND2[3] = INPUT();
+
+
+--RAND1[3] is RAND1[3]
+--operation mode is input
+
+RAND1[3] = INPUT();
+
+
+--RAND2[0] is RAND2[0]
+--operation mode is input
+
+RAND2[0] = INPUT();
+
+
+--RAND1[0] is RAND1[0]
+--operation mode is input
+
+RAND1[0] = INPUT();
+
+
+--CLK is CLK
+--operation mode is input
+
+CLK = INPUT();
+
+
+--RESET is RESET
+--operation mode is input
+
+RESET = INPUT();
+
+
+--SEG_C[6] is SEG_C[6]
+--operation mode is output
+
+SEG_C[6] = OUTPUT(B1_SEG_DEC[6]);
+
+
+--SEG_C[5] is SEG_C[5]
+--operation mode is output
+
+SEG_C[5] = OUTPUT(B1_SEG_DEC[5]);
+
+
+--SEG_C[4] is SEG_C[4]
+--operation mode is output
+
+SEG_C[4] = OUTPUT(B1_SEG_DEC[4]);
+
+
+--SEG_C[3] is SEG_C[3]
+--operation mode is output
+
+SEG_C[3] = OUTPUT(B1_SEG_DEC[3]);
+
+
+--SEG_C[2] is SEG_C[2]
+--operation mode is output
+
+SEG_C[2] = OUTPUT(B1_SEG_DEC[2]);
+
+
+--SEG_C[1] is SEG_C[1]
+--operation mode is output
+
+SEG_C[1] = OUTPUT(B1_SEG_DEC[1]);
+
+
+--SEG_C[0] is SEG_C[0]
+--operation mode is output
+
+SEG_C[0] = OUTPUT(B1_SEG_DEC[0]);
+
+
+--SEG_SEL[7] is SEG_SEL[7]
+--operation mode is output
+
+SEG_SEL[7] = OUTPUT(SEL_SEG[0]);
+
+
+--SEG_SEL[6] is SEG_SEL[6]
+--operation mode is output
+
+SEG_SEL[6] = OUTPUT(VCC);
+
+
+--SEG_SEL[5] is SEG_SEL[5]
+--operation mode is output
+
+SEG_SEL[5] = OUTPUT(!SEL_SEG[0]);
+
+
+--SEG_SEL[4] is SEG_SEL[4]
+--operation mode is output
+
+SEG_SEL[4] = OUTPUT(VCC);
+
+
+--SEG_SEL[3] is SEG_SEL[3]
+--operation mode is output
+
+SEG_SEL[3] = OUTPUT(VCC);
+
+
+--SEG_SEL[2] is SEG_SEL[2]
+--operation mode is output
+
+SEG_SEL[2] = OUTPUT(VCC);
+
+
+--SEG_SEL[1] is SEG_SEL[1]
+--operation mode is output
+
+SEG_SEL[1] = OUTPUT(VCC);
+
+
+--SEG_SEL[0] is SEG_SEL[0]
+--operation mode is output
+
+SEG_SEL[0] = OUTPUT(VCC);
+
+
