@@ -1,0 +1,132 @@
+--B1L1 is f_adder:U0|Cn~43
+--operation mode is normal
+
+B1L1 = B0 & Cin # A0 # !B0 & Cin & A0;
+
+
+--B2L1 is f_adder:U1|Cn~107
+--operation mode is normal
+
+B2L1 = A1 & B1 # B1L1 # !A1 & B1 & B1L1;
+
+
+--B3L1 is f_adder:U2|Cn~161
+--operation mode is normal
+
+B3L1 = A2 & B2 # B2L1 # !A2 & B2 & B2L1;
+
+
+--B4L1 is f_adder:U3|Cn~41
+--operation mode is normal
+
+B4L1 = A3 & B3 # B3L1 # !A3 & B3 & B3L1;
+
+
+--B1L2 is f_adder:U0|Sn~13
+--operation mode is normal
+
+B1L2 = B0 $ Cin $ A0;
+
+
+--B2_Sn is f_adder:U1|Sn
+--operation mode is normal
+
+B2_Sn = B1 $ A1 $ B1L1;
+
+
+--B3_Sn is f_adder:U2|Sn
+--operation mode is normal
+
+B3_Sn = B2L1 $ A2 $ B2;
+
+
+--B4_Sn is f_adder:U3|Sn
+--operation mode is normal
+
+B4_Sn = B3L1 $ A3 $ B3;
+
+
+--A3 is A3
+--operation mode is input
+
+A3 = INPUT();
+
+
+--B3 is B3
+--operation mode is input
+
+B3 = INPUT();
+
+
+--A2 is A2
+--operation mode is input
+
+A2 = INPUT();
+
+
+--B2 is B2
+--operation mode is input
+
+B2 = INPUT();
+
+
+--A1 is A1
+--operation mode is input
+
+A1 = INPUT();
+
+
+--B1 is B1
+--operation mode is input
+
+B1 = INPUT();
+
+
+--B0 is B0
+--operation mode is input
+
+B0 = INPUT();
+
+
+--Cin is Cin
+--operation mode is input
+
+Cin = INPUT();
+
+
+--A0 is A0
+--operation mode is input
+
+A0 = INPUT();
+
+
+--C3 is C3
+--operation mode is output
+
+C3 = OUTPUT(B4L1);
+
+
+--S0 is S0
+--operation mode is output
+
+S0 = OUTPUT(B1L2);
+
+
+--S1 is S1
+--operation mode is output
+
+S1 = OUTPUT(B2_Sn);
+
+
+--S2 is S2
+--operation mode is output
+
+S2 = OUTPUT(B3_Sn);
+
+
+--S3 is S3
+--operation mode is output
+
+S3 = OUTPUT(B4_Sn);
+
+
