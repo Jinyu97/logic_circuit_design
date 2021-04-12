@@ -1,0 +1,8 @@
+|f_adder_4
+An => add~0.IN1
+Bn => add~0.IN2
+Cn_1 => add~1.IN2
+Sn <= add~1.DB_MAX_OUTPUT_PORT_TYPE
+Cn <= add~1.DB_MAX_OUTPUT_PORT_TYPE
+
+
