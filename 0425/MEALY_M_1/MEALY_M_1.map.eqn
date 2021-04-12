@@ -1,0 +1,51 @@
+--ST_C.S0 is ST_C.S0
+--operation mode is normal
+
+ST_C.S0_lut_out = X # !ST_C.S1 & !ST_C.S2 & ST_C.S0;
+ST_C.S0 = DFFEAS(ST_C.S0_lut_out, !CLK, RESET, , , , , , );
+
+
+--A1L6 is Select~5
+--operation mode is normal
+
+A1L6 = ST_C.S0 & X;
+
+
+--ST_C.S1 is ST_C.S1
+--operation mode is normal
+
+ST_C.S1_lut_out = X & ST_C.S2 # !ST_C.S0;
+ST_C.S1 = DFFEAS(ST_C.S1_lut_out, !CLK, RESET, , , , , , );
+
+
+--ST_C.S2 is ST_C.S2
+--operation mode is normal
+
+ST_C.S2_lut_out = X & ST_C.S1;
+ST_C.S2 = DFFEAS(ST_C.S2_lut_out, !CLK, RESET, , , , , , );
+
+
+--X is X
+--operation mode is input
+
+X = INPUT();
+
+
+--CLK is CLK
+--operation mode is input
+
+CLK = INPUT();
+
+
+--RESET is RESET
+--operation mode is input
+
+RESET = INPUT();
+
+
+--Y is Y
+--operation mode is output
+
+Y = OUTPUT(A1L6);
+
+

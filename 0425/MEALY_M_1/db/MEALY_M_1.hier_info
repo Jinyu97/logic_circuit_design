@@ -1,0 +1,12 @@
+|MEALY_M_1
+CLK => ST_C~0.IN1
+RESET => ST_C~1.IN1
+X => ST_N.S1.IN1
+X => ST_N.S2.DATAB
+X => Select~0.IN1
+X => ST_N.S1.IN2
+X => Select~0.IN2
+X => ST_C.S0.DATAIN
+Y <= Select~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
