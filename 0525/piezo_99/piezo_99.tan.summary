@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.750 ns
+From           : rst
+To             : piezo_tone:U0_piezo_tone|clk_count2[48]
+From Clock     : 
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 16.939 ns
+From           : piezo_tone:U0_piezo_tone|piezo_freq
+To             : piezo_out
+From Clock     : clk
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -7.488 ns
+From           : rst
+To             : piezo_tone:U0_piezo_tone|clk_count[3]
+From Clock     : 
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 68.31 MHz ( period = 14.639 ns )
+From           : piezo_tone:U0_piezo_tone|clk_count2[1]
+To             : piezo_tone:U0_piezo_tone|clk_count2[51]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+
