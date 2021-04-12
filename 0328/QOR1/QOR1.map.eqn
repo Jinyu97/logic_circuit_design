@@ -1,0 +1,24 @@
+--A1L4 is comb~0
+--operation mode is normal
+
+A1L4 = A # B;
+
+
+--A is A
+--operation mode is input
+
+A = INPUT();
+
+
+--B is B
+--operation mode is input
+
+B = INPUT();
+
+
+--Y is Y
+--operation mode is output
+
+Y = OUTPUT(A1L4);
+
+
