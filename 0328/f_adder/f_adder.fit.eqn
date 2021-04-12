@@ -1,0 +1,42 @@
+--A1L6 is comb~56 at LC3_1_W4
+--operation mode is normal
+
+A1L6 = An $ (Bn $ Cn_1);
+
+
+--A1L7 is comb~57 at LC5_1_W4
+--operation mode is normal
+
+A1L7 = An & Bn # Cn_1 # !An & Bn & Cn_1;
+
+
+--Cn_1 is Cn_1 at PIN_Y21
+--operation mode is input
+
+Cn_1 = INPUT();
+
+
+--Bn is Bn at PIN_Y19
+--operation mode is input
+
+Bn = INPUT();
+
+
+--An is An at PIN_AA19
+--operation mode is input
+
+An = INPUT();
+
+
+--Sn is Sn at PIN_AC25
+--operation mode is output
+
+Sn = OUTPUT(A1L6);
+
+
+--Cn is Cn at PIN_AC1
+--operation mode is output
+
+Cn = OUTPUT(A1L7);
+
+
