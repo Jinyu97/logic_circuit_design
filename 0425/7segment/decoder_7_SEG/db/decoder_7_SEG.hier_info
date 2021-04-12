@@ -1,0 +1,46 @@
+|decoder_7_SEG
+A => sa~1.IN1
+A => sb~0.IN1
+A => sc~1.IN0
+A => sd~7.IN0
+A => sd~4.IN1
+A => sd~0.IN1
+A => sf~3.IN1
+A => sf~0.IN1
+B => sa~0.IN1
+B => sb~0.IN0
+B => sd~2.IN0
+B => sd~4.IN0
+B => sg~0.IN0
+B => sc~0.IN0
+B => sd~6.IN0
+B => sf~0.IN0
+C => sa~1.IN0
+C => sb~1.IN0
+C => sc~0.IN1
+C => sd~6.IN1
+C => sf~3.IN0
+C => sg~0.IN1
+C => sd~2.IN1
+C => sd~0.IN0
+D => sa~0.IN0
+D => sd~1.IN0
+D => sf~1.IN0
+D => sg~1.IN0
+COM[0] <= <GND>
+COM[1] <= <VCC>
+COM[2] <= <VCC>
+COM[3] <= <VCC>
+COM[4] <= <VCC>
+COM[5] <= <VCC>
+COM[6] <= <VCC>
+COM[7] <= <VCC>
+sa <= sa~2.DB_MAX_OUTPUT_PORT_TYPE
+sb <= sb~1.DB_MAX_OUTPUT_PORT_TYPE
+sc <= sc~1.DB_MAX_OUTPUT_PORT_TYPE
+sd <= sd~8.DB_MAX_OUTPUT_PORT_TYPE
+se <= se~0.DB_MAX_OUTPUT_PORT_TYPE
+sf <= sf~4.DB_MAX_OUTPUT_PORT_TYPE
+sg <= sg~2.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,156 @@
+--A1L51 is sa~21
+--operation mode is normal
+
+A1L51 = B # D # C $ !A;
+
+
+--A1L71 is sb~1
+--operation mode is normal
+
+A1L71 = C & A $ B;
+
+
+--A1L91 is sc~15
+--operation mode is normal
+
+A1L91 = C # A # !B;
+
+
+--A1L12 is sd~87
+--operation mode is normal
+
+A1L12 = D # B & !C # !A # !B & A $ !C;
+
+
+--A1L32 is se~24
+--operation mode is normal
+
+A1L32 = !A & B # !C;
+
+
+--A1L52 is sf~77
+--operation mode is normal
+
+A1L52 = D # C & !B # !A # !C & !A & !B;
+
+
+--A1L72 is sg~30
+--operation mode is normal
+
+A1L72 = D # C & !A # !B # !C & B;
+
+
+--B is B
+--operation mode is input
+
+B = INPUT();
+
+
+--D is D
+--operation mode is input
+
+D = INPUT();
+
+
+--C is C
+--operation mode is input
+
+C = INPUT();
+
+
+--A is A
+--operation mode is input
+
+A = INPUT();
+
+
+--COM[7] is COM[7]
+--operation mode is output
+
+COM[7] = OUTPUT(VCC);
+
+
+--COM[6] is COM[6]
+--operation mode is output
+
+COM[6] = OUTPUT(VCC);
+
+
+--COM[5] is COM[5]
+--operation mode is output
+
+COM[5] = OUTPUT(VCC);
+
+
+--COM[4] is COM[4]
+--operation mode is output
+
+COM[4] = OUTPUT(VCC);
+
+
+--COM[3] is COM[3]
+--operation mode is output
+
+COM[3] = OUTPUT(VCC);
+
+
+--COM[2] is COM[2]
+--operation mode is output
+
+COM[2] = OUTPUT(VCC);
+
+
+--COM[1] is COM[1]
+--operation mode is output
+
+COM[1] = OUTPUT(VCC);
+
+
+--COM[0] is COM[0]
+--operation mode is output
+
+COM[0] = OUTPUT(GND);
+
+
+--sa is sa
+--operation mode is output
+
+sa = OUTPUT(A1L51);
+
+
+--sb is sb
+--operation mode is output
+
+sb = OUTPUT(!A1L71);
+
+
+--sc is sc
+--operation mode is output
+
+sc = OUTPUT(A1L91);
+
+
+--sd is sd
+--operation mode is output
+
+sd = OUTPUT(A1L12);
+
+
+--se is se
+--operation mode is output
+
+se = OUTPUT(A1L32);
+
+
+--sf is sf
+--operation mode is output
+
+sf = OUTPUT(A1L52);
+
+
+--sg is sg
+--operation mode is output
+
+sg = OUTPUT(A1L72);
+
+
