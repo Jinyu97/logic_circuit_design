@@ -1,0 +1,262 @@
+Analysis & Synthesis report for COUNT1000_C_SEG
+Wed May 02 12:33:32 2018
+Version 4.2 Build 157 12/07/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Hierarchy
+  5. User-Specified and Inferred Latches
+  6. General Register Statistics
+  7. WYSIWYG Cells
+  8. Analysis & Synthesis Resource Utilization by Entity
+  9. Analysis & Synthesis Equations
+ 10. Analysis & Synthesis Source Files Read
+ 11. Analysis & Synthesis Resource Usage Summary
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed May 02 12:33:32 2018    ;
+; Quartus II Version          ; 4.2 Build 157 12/07/2004 SJ Full Version ;
+; Revision Name               ; COUNT1000_C_SEG                          ;
+; Top-level Entity Name       ; COUNT1000_C_SEG                          ;
+; Family                      ; EXCALIBUR_ARM                            ;
+; Total logic elements        ; 118                                      ;
+; Total pins                  ; 17                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                  ;
++--------------------------------------------------------------------------------------------+-----------------+-----------------+
+; Option                                                                                     ; Setting         ; Default Value   ;
++--------------------------------------------------------------------------------------------+-----------------+-----------------+
+; Device                                                                                     ; EPXA4F672C3     ;                 ;
+; Family name                                                                                ; EXCALIBUR_ARM   ; Stratix         ;
+; Use smart compilation                                                                      ; Normal          ; Normal          ;
+; Create Debugging Nodes for IP Cores                                                        ; off             ; off             ;
+; Preserve fewer node names                                                                  ; On              ; On              ;
+; Disable OpenCore Plus hardware evaluation                                                  ; Off             ; Off             ;
+; Verilog Version                                                                            ; Verilog_2001    ; Verilog_2001    ;
+; VHDL Version                                                                               ; VHDL93          ; VHDL93          ;
+; Top-level entity name                                                                      ; COUNT1000_C_SEG ; COUNT1000_C_SEG ;
+; State Machine Processing                                                                   ; Auto            ; Auto            ;
+; Extract Verilog State Machines                                                             ; On              ; On              ;
+; Extract VHDL State Machines                                                                ; On              ; On              ;
+; NOT Gate Push-Back                                                                         ; On              ; On              ;
+; Power-Up Don't Care                                                                        ; On              ; On              ;
+; Remove Redundant Logic Cells                                                               ; Off             ; Off             ;
+; Remove Duplicate Registers                                                                 ; On              ; On              ;
+; Ignore CARRY Buffers                                                                       ; Off             ; Off             ;
+; Ignore CASCADE Buffers                                                                     ; Off             ; Off             ;
+; Ignore GLOBAL Buffers                                                                      ; Off             ; Off             ;
+; Ignore ROW GLOBAL Buffers                                                                  ; Off             ; Off             ;
+; Ignore LCELL Buffers                                                                       ; Off             ; Off             ;
+; Ignore SOFT Buffers                                                                        ; On              ; On              ;
+; Limit AHDL Integers to 32 Bits                                                             ; Off             ; Off             ;
+; Auto Implement in ROM                                                                      ; Off             ; Off             ;
+; Technology Mapper -- APEX 20K/APEX 20KE/APEX 20KC/APEX II/ARM-based Excalibur              ; LUT             ; LUT             ;
+; Optimization Technique -- APEX 20K/APEX 20KE/APEX 20KC/APEX II/ARM-based Excalibur         ; Balanced        ; Balanced        ;
+; Allow XOR Gate Usage                                                                       ; On              ; On              ;
+; Carry Chain Length                                                                         ; 48              ; 48              ;
+; Cascade Chain Length                                                                       ; 2               ; 2               ;
+; Parallel Expander Chain Length -- APEX 20K/APEX 20KE/APEX 20KC/APEX II/ARM-based Excalibur ; 16              ; 16              ;
+; Auto Carry Chains                                                                          ; On              ; On              ;
+; Auto Parallel Expanders                                                                    ; On              ; On              ;
+; Auto Open-Drain Pins                                                                       ; On              ; On              ;
+; Remove Duplicate Logic                                                                     ; On              ; On              ;
+; Perform WYSIWYG Primitive Resynthesis                                                      ; Off             ; Off             ;
+; Perform gate-level register retiming                                                       ; Off             ; Off             ;
+; Allow register retiming to trade off Tsu/Tco with Fmax                                     ; On              ; On              ;
+; Auto ROM Replacement                                                                       ; On              ; On              ;
+; Auto RAM Replacement                                                                       ; On              ; On              ;
+; Auto Clock Enable Replacement                                                              ; On              ; On              ;
+; Auto Resource Sharing                                                                      ; Off             ; Off             ;
+; Allow Any RAM Size For Recognition                                                         ; Off             ; Off             ;
+; Allow Any ROM Size For Recognition                                                         ; Off             ; Off             ;
+; Allow Any Shift Register Size For Recognition                                              ; Off             ; Off             ;
++--------------------------------------------------------------------------------------------+-----------------+-----------------+
+
+
++-----------+
+; Hierarchy ;
++-----------+
+COUNT1000_C_SEG
+ |-- SEG_DEC:U0
+
+
++----------------------------------------------------+
+; User-Specified and Inferred Latches                ;
++-----------------------------------------------+----+
+; Latch Name                                    ;    ;
++-----------------------------------------------+----+
+; SEG_DEC:U0|SEG_DEC[6]                         ;    ;
+; SEG_DEC:U0|SEG_DEC[5]                         ;    ;
+; SEG_DEC:U0|SEG_DEC[4]                         ;    ;
+; SEG_DEC:U0|SEG_DEC[3]                         ;    ;
+; SEG_DEC:U0|SEG_DEC[2]                         ;    ;
+; SEG_DEC:U0|SEG_DEC[1]                         ;    ;
+; SEG_DEC:U0|SEG_DEC[0]                         ;    ;
+; SEG_SEL[2]$latch                              ;    ;
+; SEG_SEL[1]$latch                              ;    ;
+; SEG_SEL[0]$latch                              ;    ;
+; COUNT_TMP[0]                                  ;    ;
+; COUNT_TMP[1]                                  ;    ;
+; COUNT_TMP[2]                                  ;    ;
+; COUNT_TMP[3]                                  ;    ;
+; Number of user-specified and inferred latches ; 14 ;
++-----------------------------------------------+----+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 44    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 13    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 38    ;
+; Number of registers using Output Enable      ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------+
+; WYSIWYG Cells                                                  ;
++--------------------------------------------------------+-------+
+; Statistic                                              ; Value ;
++--------------------------------------------------------+-------+
+; Number of WYSIWYG cells                                ; 29    ;
+; Number of synthesis-generated cells                    ; 89    ;
+; Number of WYSIWYG LUTs                                 ; 29    ;
+; Number of synthesis-generated LUTs                     ; 62    ;
+; Number of WYSIWYG registers                            ; 0     ;
+; Number of synthesis-generated registers                ; 44    ;
+; Number of cells with combinational logic only          ; 74    ;
+; Number of cells with registers only                    ; 27    ;
+; Number of cells with combinational logic and registers ; 17    ;
++--------------------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                               ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+-----------------------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name         ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+-----------------------------+
+; |COUNT1000_C_SEG           ; 118 (103)   ; 44           ; 0           ; 17   ; 0            ; 74 (59)      ; 27 (27)           ; 17 (17)          ; 29 (29)         ; |COUNT1000_C_SEG            ;
+;    |SEG_DEC:U0|            ; 15 (15)     ; 0            ; 0           ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |COUNT1000_C_SEG|SEG_DEC:U0 ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+-----------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in D:/lyj/COUNT1000_C_SEG/COUNT1000_C_SEG.map.eqn.
+
+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                        ;
++----------------------------------+-----------------+------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Name with Absolute Path             ;
++----------------------------------+-----------------+------------------------------------------+
+; COUNT1000_C_SEG.v                ; yes             ; D:/lyj/COUNT1000_C_SEG/COUNT1000_C_SEG.v ;
++----------------------------------+-----------------+------------------------------------------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++-----------------------------------+---------+
+; Resource                          ; Usage   ;
++-----------------------------------+---------+
+; Logic cells                       ; 118     ;
+; Total combinational functions     ; 91      ;
+; Total 4-input functions           ; 47      ;
+; Total 3-input functions           ; 5       ;
+; Total 2-input functions           ; 10      ;
+; Total 1-input functions           ; 29      ;
+; Total 0-input functions           ; 0       ;
+; Combinational cells for routing   ; 0       ;
+; Total registers                   ; 44      ;
+; Total logic cells in carry chains ; 29      ;
+; I/O pins                          ; 17      ;
+; Maximum fan-out node              ; RESET   ;
+; Maximum fan-out                   ; 42      ;
+; Total fan-out                     ; 414     ;
+; Average fan-out                   ; 3.07    ;
++-----------------------------------+---------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 4.2 Build 157 12/07/2004 SJ Full Version
+    Info: Processing started: Wed May 02 12:33:31 2018
+Info: Command: quartus_map --import_settings_files=on --export_settings_files=off COUNT1000_C_SEG -c COUNT1000_C_SEG
+Warning: This product family is not recommended for new designs. Altera provides newer product families with better cost & performance attributes than ARM-Based Excalibur devices
+Info: Found 2 design units, including 2 entities, in source file COUNT1000_C_SEG.v
+    Info: Found entity 1: COUNT1000_C_SEG
+    Info: Found entity 2: SEG_DEC
+Warning: Verilog HDL assignment warning at COUNT1000_C_SEG.v(14): truncated value with size 30 to match size of target (29)
+Warning: Verilog HDL assignment warning at COUNT1000_C_SEG.v(19): truncated value with size 5 to match size of target (4)
+Warning: Verilog HDL assignment warning at COUNT1000_C_SEG.v(25): truncated value with size 5 to match size of target (4)
+Warning: Verilog HDL assignment warning at COUNT1000_C_SEG.v(32): truncated value with size 5 to match size of target (4)
+Warning: Verilog HDL assignment warning at COUNT1000_C_SEG.v(37): truncated value with size 3 to match size of target (2)
+Warning: Verilog HDL Always Construct warning at COUNT1000_C_SEG.v(39): variable COUNT_TMP may not be assigned a new value in every possible path through the Always Construct.  Variable COUNT_TMP holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: Verilog HDL Always Construct warning at COUNT1000_C_SEG.v(46): variable SEG_SEL may not be assigned a new value in every possible path through the Always Construct.  Variable SEG_SEL holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: Verilog HDL Always Construct warning at COUNT1000_C_SEG.v(62): variable SEG_DEC may not be assigned a new value in every possible path through the Always Construct.  Variable SEG_DEC holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "SEG_SEL[7]" stuck at VCC
+    Warning: Pin "SEG_SEL[6]" stuck at VCC
+    Warning: Pin "SEG_SEL[5]" stuck at VCC
+    Warning: Pin "SEG_SEL[4]" stuck at VCC
+    Warning: Pin "SEG_SEL[3]" stuck at VCC
+Info: Implemented 135 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 15 output pins
+    Info: Implemented 118 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Processing ended: Wed May 02 12:33:32 2018
+    Info: Elapsed time: 00:00:01
+
+

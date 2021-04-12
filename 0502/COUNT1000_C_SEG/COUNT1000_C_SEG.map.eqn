@@ -1,0 +1,994 @@
+--B1L61 is SEG_DEC:U0|Select~197
+--operation mode is normal
+
+B1L61 = COUNT_TMP[1] # COUNT_TMP[2];
+
+
+--B1L9 is SEG_DEC:U0|Select~172
+--operation mode is normal
+
+B1L9 = COUNT_TMP[1] & !COUNT_TMP[3] & !COUNT_TMP[2] # !COUNT_TMP[0] # !COUNT_TMP[1] & COUNT_TMP[2] $ COUNT_TMP[3];
+
+
+--B1_SEG_DEC[6] is SEG_DEC:U0|SEG_DEC[6]
+--operation mode is normal
+
+B1_SEG_DEC[6] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[6] # !COUNT_TMP[3] & B1L9 # !B1L61 & B1L9;
+
+
+--B1L01 is SEG_DEC:U0|Select~174
+--operation mode is normal
+
+B1L01 = COUNT_TMP[0] & COUNT_TMP[1] # COUNT_TMP[2] $ !COUNT_TMP[3] # !COUNT_TMP[0] & COUNT_TMP[2] & COUNT_TMP[3] # !COUNT_TMP[2] & COUNT_TMP[1];
+
+
+--B1_SEG_DEC[5] is SEG_DEC:U0|SEG_DEC[5]
+--operation mode is normal
+
+B1_SEG_DEC[5] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[5] # !COUNT_TMP[3] & !B1L01 # !B1L61 & !B1L01;
+
+
+--B1L11 is SEG_DEC:U0|Select~176
+--operation mode is normal
+
+B1L11 = COUNT_TMP[0] # COUNT_TMP[1] & COUNT_TMP[3] # !COUNT_TMP[1] & COUNT_TMP[2];
+
+
+--B1_SEG_DEC[4] is SEG_DEC:U0|SEG_DEC[4]
+--operation mode is normal
+
+B1_SEG_DEC[4] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[4] # !COUNT_TMP[3] & !B1L11 # !B1L61 & !B1L11;
+
+
+--B1L21 is SEG_DEC:U0|Select~178
+--operation mode is normal
+
+B1L21 = COUNT_TMP[0] & COUNT_TMP[3] # COUNT_TMP[1] $ !COUNT_TMP[2] # !COUNT_TMP[0] & COUNT_TMP[1] & COUNT_TMP[3] # !COUNT_TMP[1] & COUNT_TMP[2];
+
+
+--B1_SEG_DEC[3] is SEG_DEC:U0|SEG_DEC[3]
+--operation mode is normal
+
+B1_SEG_DEC[3] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[3] # !COUNT_TMP[3] & !B1L21 # !B1L61 & !B1L21;
+
+
+--B1L31 is SEG_DEC:U0|Select~180
+--operation mode is normal
+
+B1L31 = COUNT_TMP[2] & COUNT_TMP[3] # !COUNT_TMP[2] & COUNT_TMP[1] & COUNT_TMP[3] # !COUNT_TMP[0];
+
+
+--B1_SEG_DEC[2] is SEG_DEC:U0|SEG_DEC[2]
+--operation mode is normal
+
+B1_SEG_DEC[2] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[2] # !COUNT_TMP[3] & !B1L31 # !B1L61 & !B1L31;
+
+
+--B1L41 is SEG_DEC:U0|Select~182
+--operation mode is normal
+
+B1L41 = COUNT_TMP[2] & COUNT_TMP[3] # COUNT_TMP[0] $ COUNT_TMP[1] # !COUNT_TMP[2] & COUNT_TMP[1] & COUNT_TMP[3];
+
+
+--B1_SEG_DEC[1] is SEG_DEC:U0|SEG_DEC[1]
+--operation mode is normal
+
+B1_SEG_DEC[1] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[1] # !COUNT_TMP[3] & !B1L41 # !B1L61 & !B1L41;
+
+
+--B1L51 is SEG_DEC:U0|Select~184
+--operation mode is normal
+
+B1L51 = COUNT_TMP[0] & COUNT_TMP[3] $ (!COUNT_TMP[1] & !COUNT_TMP[2]) # !COUNT_TMP[0] & COUNT_TMP[2] # COUNT_TMP[1] & COUNT_TMP[3];
+
+
+--B1_SEG_DEC[0] is SEG_DEC:U0|SEG_DEC[0]
+--operation mode is normal
+
+B1_SEG_DEC[0] = B1L61 & COUNT_TMP[3] & B1_SEG_DEC[0] # !COUNT_TMP[3] & !B1L51 # !B1L61 & !B1L51;
+
+
+--SEL_SEG[0] is SEL_SEG[0]
+--operation mode is normal
+
+SEL_SEG[0]_lut_out = !SEL_SEG[0] & !SEL_SEG[1];
+SEL_SEG[0] = DFFE(SEL_SEG[0]_lut_out, !CLK1, , , );
+
+
+--SEL_SEG[1] is SEL_SEG[1]
+--operation mode is normal
+
+SEL_SEG[1]_lut_out = !SEL_SEG[1] & SEL_SEG[0];
+SEL_SEG[1] = DFFE(SEL_SEG[1]_lut_out, !CLK1, , , );
+
+
+--SEG_SEL[2]$latch is SEG_SEL[2]$latch
+--operation mode is normal
+
+SEG_SEL[2]$latch = SEL_SEG[0] & SEG_SEL[2]$latch # !SEL_SEG[1];
+
+
+--SEG_SEL[1]$latch is SEG_SEL[1]$latch
+--operation mode is normal
+
+SEG_SEL[1]$latch = SEL_SEG[1] & SEG_SEL[1]$latch # !SEL_SEG[0];
+
+
+--SEG_SEL[0]$latch is SEG_SEL[0]$latch
+--operation mode is normal
+
+SEG_SEL[0]$latch = SEL_SEG[0] & SEG_SEL[0]$latch # !SEL_SEG[1] # !SEL_SEG[0] & SEL_SEG[1];
+
+
+--COUNT_10[1] is COUNT_10[1]
+--operation mode is normal
+
+COUNT_10[1]_lut_out = COUNT_10[1] & !COUNT_10[0] # !COUNT_10[1] & COUNT_10[0] & COUNT_10[2] # !COUNT_10[3];
+COUNT_10[1] = DFFE(COUNT_10[1]_lut_out, !CLK1, !RESET, , A1L741);
+
+
+--A1L08 is Select~367
+--operation mode is normal
+
+A1L08 = SEL_SEG[0] & COUNT_10[1];
+
+
+--COUNT_100[1] is COUNT_100[1]
+--operation mode is normal
+
+COUNT_100[1]_lut_out = COUNT_100[1] & !COUNT_100[0] # !COUNT_100[1] & COUNT_100[0] & COUNT_100[2] # !COUNT_100[3];
+COUNT_100[1] = DFFE(COUNT_100[1]_lut_out, !CLK1, !RESET, , A1L641);
+
+
+--COUNT_1[1] is COUNT_1[1]
+--operation mode is normal
+
+COUNT_1[1]_lut_out = COUNT_1[1] & !COUNT_1[0] # !COUNT_1[1] & COUNT_1[0] & COUNT_1[2] # !COUNT_1[3];
+COUNT_1[1] = DFFE(COUNT_1[1]_lut_out, !CLK1, !RESET, , );
+
+
+--A1L18 is Select~368
+--operation mode is normal
+
+A1L18 = !SEL_SEG[0] & SEL_SEG[1] & COUNT_100[1] # !SEL_SEG[1] & COUNT_1[1];
+
+
+--A1L97 is Select~105
+--operation mode is normal
+
+A1L97 = !SEL_SEG[1] # !SEL_SEG[0];
+
+
+--COUNT_TMP[1] is COUNT_TMP[1]
+--operation mode is normal
+
+COUNT_TMP[1] = A1L97 & A1L08 # A1L18 # !A1L97 & COUNT_TMP[1];
+
+
+--COUNT_10[2] is COUNT_10[2]
+--operation mode is normal
+
+COUNT_10[2]_lut_out = !COUNT_10[2];
+COUNT_10[2] = DFFE(COUNT_10[2]_lut_out, !CLK1, !RESET, , A1L24);
+
+
+--A1L28 is Select~369
+--operation mode is normal
+
+A1L28 = SEL_SEG[0] & COUNT_10[2];
+
+
+--COUNT_100[2] is COUNT_100[2]
+--operation mode is normal
+
+COUNT_100[2]_lut_out = !COUNT_100[2];
+COUNT_100[2] = DFFE(COUNT_100[2]_lut_out, !CLK1, !RESET, , A1L84);
+
+
+--COUNT_1[2] is COUNT_1[2]
+--operation mode is normal
+
+COUNT_1[2]_lut_out = !COUNT_1[2];
+COUNT_1[2] = DFFE(COUNT_1[2]_lut_out, !CLK1, !RESET, , A1L88);
+
+
+--A1L38 is Select~370
+--operation mode is normal
+
+A1L38 = !SEL_SEG[0] & SEL_SEG[1] & COUNT_100[2] # !SEL_SEG[1] & COUNT_1[2];
+
+
+--COUNT_TMP[2] is COUNT_TMP[2]
+--operation mode is normal
+
+COUNT_TMP[2] = A1L97 & A1L28 # A1L38 # !A1L97 & COUNT_TMP[2];
+
+
+--COUNT_10[3] is COUNT_10[3]
+--operation mode is normal
+
+COUNT_10[3]_lut_out = COUNT_10[3] & COUNT_10[1] $ COUNT_10[2] # !COUNT_10[0] # !COUNT_10[3] & COUNT_10[1] & COUNT_10[2] & COUNT_10[0];
+COUNT_10[3] = DFFE(COUNT_10[3]_lut_out, !CLK1, !RESET, , A1L741);
+
+
+--A1L48 is Select~371
+--operation mode is normal
+
+A1L48 = SEL_SEG[0] & COUNT_10[3];
+
+
+--COUNT_100[3] is COUNT_100[3]
+--operation mode is normal
+
+COUNT_100[3]_lut_out = COUNT_100[3] & COUNT_100[1] $ COUNT_100[2] # !COUNT_100[0] # !COUNT_100[3] & COUNT_100[1] & COUNT_100[2] & COUNT_100[0];
+COUNT_100[3] = DFFE(COUNT_100[3]_lut_out, !CLK1, !RESET, , A1L641);
+
+
+--COUNT_1[3] is COUNT_1[3]
+--operation mode is normal
+
+COUNT_1[3]_lut_out = !A1L741 & COUNT_1[3] $ (COUNT_1[2] & A1L88);
+COUNT_1[3] = DFFE(COUNT_1[3]_lut_out, !CLK1, !RESET, , );
+
+
+--A1L58 is Select~372
+--operation mode is normal
+
+A1L58 = !SEL_SEG[0] & SEL_SEG[1] & COUNT_100[3] # !SEL_SEG[1] & COUNT_1[3];
+
+
+--COUNT_TMP[3] is COUNT_TMP[3]
+--operation mode is normal
+
+COUNT_TMP[3] = A1L97 & A1L48 # A1L58 # !A1L97 & COUNT_TMP[3];
+
+
+--COUNT_10[0] is COUNT_10[0]
+--operation mode is normal
+
+COUNT_10[0]_lut_out = !COUNT_10[0];
+COUNT_10[0] = DFFE(COUNT_10[0]_lut_out, !CLK1, !RESET, , A1L741);
+
+
+--A1L68 is Select~373
+--operation mode is normal
+
+A1L68 = SEL_SEG[0] & COUNT_10[0];
+
+
+--COUNT_100[0] is COUNT_100[0]
+--operation mode is normal
+
+COUNT_100[0]_lut_out = !COUNT_100[0];
+COUNT_100[0] = DFFE(COUNT_100[0]_lut_out, !CLK1, !RESET, , A1L641);
+
+
+--COUNT_1[0] is COUNT_1[0]
+--operation mode is normal
+
+COUNT_1[0]_lut_out = !COUNT_1[0];
+COUNT_1[0] = DFFE(COUNT_1[0]_lut_out, !CLK1, !RESET, , );
+
+
+--A1L78 is Select~374
+--operation mode is normal
+
+A1L78 = !SEL_SEG[0] & SEL_SEG[1] & COUNT_100[0] # !SEL_SEG[1] & COUNT_1[0];
+
+
+--COUNT_TMP[0] is COUNT_TMP[0]
+--operation mode is normal
+
+COUNT_TMP[0] = A1L97 & A1L68 # A1L78 # !A1L97 & COUNT_TMP[0];
+
+
+--CLK1 is CLK1
+--operation mode is normal
+
+CLK1_lut_out = !A1L251 & A1L551 & A1L651;
+CLK1 = DFFE(CLK1_lut_out, !CLK, !RESET, , );
+
+
+--A1L741 is reduce_nor~323
+--operation mode is normal
+
+A1L741 = !COUNT_1[1] & !COUNT_1[2] & COUNT_1[3] & COUNT_1[0];
+
+
+--A1L841 is reduce_nor~324
+--operation mode is normal
+
+A1L841 = COUNT_10[1] # COUNT_10[2] # !COUNT_10[0] # !COUNT_10[3];
+
+
+--A1L641 is always3~0
+--operation mode is normal
+
+A1L641 = !A1L841 & A1L741;
+
+
+--A1L24 is COUNT_10[2]~112
+--operation mode is normal
+
+A1L24 = COUNT_10[1] & COUNT_10[0] & A1L741;
+
+
+--A1L84 is COUNT_100[2]~112
+--operation mode is normal
+
+A1L84 = COUNT_100[1] & COUNT_100[0] & !A1L841 & A1L741;
+
+
+--A1L88 is add~442
+--operation mode is normal
+
+A1L88 = COUNT_1[1] & COUNT_1[0];
+
+
+--CLK_COUNT[11] is CLK_COUNT[11]
+--operation mode is normal
+
+CLK_COUNT[11]_lut_out = A1L111;
+CLK_COUNT[11] = DFFE(CLK_COUNT[11]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[12] is CLK_COUNT[12]
+--operation mode is normal
+
+CLK_COUNT[12]_lut_out = A1L311 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[12] = DFFE(CLK_COUNT[12]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[10] is CLK_COUNT[10]
+--operation mode is normal
+
+CLK_COUNT[10]_lut_out = A1L901 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[10] = DFFE(CLK_COUNT[10]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[9] is CLK_COUNT[9]
+--operation mode is normal
+
+CLK_COUNT[9]_lut_out = A1L701 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[9] = DFFE(CLK_COUNT[9]_lut_out, !CLK, , , !RESET);
+
+
+--A1L941 is reduce_nor~325
+--operation mode is normal
+
+A1L941 = CLK_COUNT[11] # !CLK_COUNT[9] # !CLK_COUNT[10] # !CLK_COUNT[12];
+
+
+--CLK_COUNT[8] is CLK_COUNT[8]
+--operation mode is normal
+
+CLK_COUNT[8]_lut_out = A1L501;
+CLK_COUNT[8] = DFFE(CLK_COUNT[8]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[7] is CLK_COUNT[7]
+--operation mode is normal
+
+CLK_COUNT[7]_lut_out = A1L301 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[7] = DFFE(CLK_COUNT[7]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[6] is CLK_COUNT[6]
+--operation mode is normal
+
+CLK_COUNT[6]_lut_out = A1L101;
+CLK_COUNT[6] = DFFE(CLK_COUNT[6]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[5] is CLK_COUNT[5]
+--operation mode is normal
+
+CLK_COUNT[5]_lut_out = A1L99;
+CLK_COUNT[5] = DFFE(CLK_COUNT[5]_lut_out, !CLK, , , !RESET);
+
+
+--A1L051 is reduce_nor~326
+--operation mode is normal
+
+A1L051 = CLK_COUNT[8] # CLK_COUNT[7] # !CLK_COUNT[5] # !CLK_COUNT[6];
+
+
+--CLK_COUNT[4] is CLK_COUNT[4]
+--operation mode is normal
+
+CLK_COUNT[4]_lut_out = A1L79;
+CLK_COUNT[4] = DFFE(CLK_COUNT[4]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[3] is CLK_COUNT[3]
+--operation mode is normal
+
+CLK_COUNT[3]_lut_out = A1L59;
+CLK_COUNT[3] = DFFE(CLK_COUNT[3]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[2] is CLK_COUNT[2]
+--operation mode is normal
+
+CLK_COUNT[2]_lut_out = A1L39;
+CLK_COUNT[2] = DFFE(CLK_COUNT[2]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[1] is CLK_COUNT[1]
+--operation mode is normal
+
+CLK_COUNT[1]_lut_out = A1L19;
+CLK_COUNT[1] = DFFE(CLK_COUNT[1]_lut_out, !CLK, , , !RESET);
+
+
+--A1L151 is reduce_nor~327
+--operation mode is normal
+
+A1L151 = !CLK_COUNT[1] # !CLK_COUNT[2] # !CLK_COUNT[3] # !CLK_COUNT[4];
+
+
+--CLK_COUNT[0] is CLK_COUNT[0]
+--operation mode is normal
+
+CLK_COUNT[0]_lut_out = A1L98;
+CLK_COUNT[0] = DFFE(CLK_COUNT[0]_lut_out, !CLK, , , !RESET);
+
+
+--A1L251 is reduce_nor~328
+--operation mode is normal
+
+A1L251 = A1L941 # A1L051 # A1L151 # !CLK_COUNT[0];
+
+
+--A1L111 is add~506
+--operation mode is arithmetic
+
+A1L111 = CLK_COUNT[11] $ (A1L011);
+
+--A1L211 is add~506COUT
+--operation mode is arithmetic
+
+A1L211 = CARRY(!A1L011 # !CLK_COUNT[11]);
+
+
+--A1L311 is add~507
+--operation mode is arithmetic
+
+A1L311 = CLK_COUNT[12] $ (!A1L211);
+
+--A1L411 is add~507COUT
+--operation mode is arithmetic
+
+A1L411 = CARRY(CLK_COUNT[12] & !A1L211);
+
+
+--A1L901 is add~505
+--operation mode is arithmetic
+
+A1L901 = CLK_COUNT[10] $ (!A1L801);
+
+--A1L011 is add~505COUT
+--operation mode is arithmetic
+
+A1L011 = CARRY(CLK_COUNT[10] & !A1L801);
+
+
+--A1L701 is add~504
+--operation mode is arithmetic
+
+A1L701 = CLK_COUNT[9] $ (A1L601);
+
+--A1L801 is add~504COUT
+--operation mode is arithmetic
+
+A1L801 = CARRY(!A1L601 # !CLK_COUNT[9]);
+
+
+--A1L501 is add~503
+--operation mode is arithmetic
+
+A1L501 = CLK_COUNT[8] $ (!A1L401);
+
+--A1L601 is add~503COUT
+--operation mode is arithmetic
+
+A1L601 = CARRY(CLK_COUNT[8] & !A1L401);
+
+
+--A1L301 is add~502
+--operation mode is arithmetic
+
+A1L301 = CLK_COUNT[7] $ (A1L201);
+
+--A1L401 is add~502COUT
+--operation mode is arithmetic
+
+A1L401 = CARRY(!A1L201 # !CLK_COUNT[7]);
+
+
+--A1L101 is add~501
+--operation mode is arithmetic
+
+A1L101 = CLK_COUNT[6] $ (!A1L001);
+
+--A1L201 is add~501COUT
+--operation mode is arithmetic
+
+A1L201 = CARRY(CLK_COUNT[6] & !A1L001);
+
+
+--A1L99 is add~500
+--operation mode is arithmetic
+
+A1L99 = CLK_COUNT[5] $ (A1L89);
+
+--A1L001 is add~500COUT
+--operation mode is arithmetic
+
+A1L001 = CARRY(!A1L89 # !CLK_COUNT[5]);
+
+
+--A1L79 is add~499
+--operation mode is arithmetic
+
+A1L79 = CLK_COUNT[4] $ (!A1L69);
+
+--A1L89 is add~499COUT
+--operation mode is arithmetic
+
+A1L89 = CARRY(CLK_COUNT[4] & !A1L69);
+
+
+--A1L59 is add~498
+--operation mode is arithmetic
+
+A1L59 = CLK_COUNT[3] $ (A1L49);
+
+--A1L69 is add~498COUT
+--operation mode is arithmetic
+
+A1L69 = CARRY(!A1L49 # !CLK_COUNT[3]);
+
+
+--A1L39 is add~497
+--operation mode is arithmetic
+
+A1L39 = CLK_COUNT[2] $ (!A1L29);
+
+--A1L49 is add~497COUT
+--operation mode is arithmetic
+
+A1L49 = CARRY(CLK_COUNT[2] & !A1L29);
+
+
+--A1L19 is add~496
+--operation mode is arithmetic
+
+A1L19 = CLK_COUNT[1] $ (A1L09);
+
+--A1L29 is add~496COUT
+--operation mode is arithmetic
+
+A1L29 = CARRY(!A1L09 # !CLK_COUNT[1]);
+
+
+--A1L98 is add~495
+--operation mode is arithmetic
+
+A1L98 = !CLK_COUNT[0];
+
+--A1L09 is add~495COUT
+--operation mode is arithmetic
+
+A1L09 = CARRY(CLK_COUNT[0]);
+
+
+--CLK_COUNT[23] is CLK_COUNT[23]
+--operation mode is normal
+
+CLK_COUNT[23]_lut_out = A1L531 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[23] = DFFE(CLK_COUNT[23]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[24] is CLK_COUNT[24]
+--operation mode is normal
+
+CLK_COUNT[24]_lut_out = A1L731;
+CLK_COUNT[24] = DFFE(CLK_COUNT[24]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[22] is CLK_COUNT[22]
+--operation mode is normal
+
+CLK_COUNT[22]_lut_out = A1L331;
+CLK_COUNT[22] = DFFE(CLK_COUNT[22]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[21] is CLK_COUNT[21]
+--operation mode is normal
+
+CLK_COUNT[21]_lut_out = A1L131;
+CLK_COUNT[21] = DFFE(CLK_COUNT[21]_lut_out, !CLK, , , !RESET);
+
+
+--A1L351 is reduce_nor~335
+--operation mode is normal
+
+A1L351 = CLK_COUNT[23] & !CLK_COUNT[24] & !CLK_COUNT[22] & !CLK_COUNT[21];
+
+
+--CLK_COUNT[28] is CLK_COUNT[28]
+--operation mode is normal
+
+CLK_COUNT[28]_lut_out = A1L541;
+CLK_COUNT[28] = DFFE(CLK_COUNT[28]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[27] is CLK_COUNT[27]
+--operation mode is normal
+
+CLK_COUNT[27]_lut_out = A1L341;
+CLK_COUNT[27] = DFFE(CLK_COUNT[27]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[26] is CLK_COUNT[26]
+--operation mode is normal
+
+CLK_COUNT[26]_lut_out = A1L141;
+CLK_COUNT[26] = DFFE(CLK_COUNT[26]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[25] is CLK_COUNT[25]
+--operation mode is normal
+
+CLK_COUNT[25]_lut_out = A1L931;
+CLK_COUNT[25] = DFFE(CLK_COUNT[25]_lut_out, !CLK, , , !RESET);
+
+
+--A1L551 is reduce_nor~339
+--operation mode is normal
+
+A1L551 = (!CLK_COUNT[28] & !CLK_COUNT[27] & !CLK_COUNT[26] & !CLK_COUNT[25]) & CASCADE(A1L351);
+
+
+--CLK_COUNT[15] is CLK_COUNT[15]
+--operation mode is normal
+
+CLK_COUNT[15]_lut_out = A1L911 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[15] = DFFE(CLK_COUNT[15]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[16] is CLK_COUNT[16]
+--operation mode is normal
+
+CLK_COUNT[16]_lut_out = A1L121;
+CLK_COUNT[16] = DFFE(CLK_COUNT[16]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[14] is CLK_COUNT[14]
+--operation mode is normal
+
+CLK_COUNT[14]_lut_out = A1L711;
+CLK_COUNT[14] = DFFE(CLK_COUNT[14]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[13] is CLK_COUNT[13]
+--operation mode is normal
+
+CLK_COUNT[13]_lut_out = A1L511;
+CLK_COUNT[13] = DFFE(CLK_COUNT[13]_lut_out, !CLK, , , !RESET);
+
+
+--A1L451 is reduce_nor~337
+--operation mode is normal
+
+A1L451 = CLK_COUNT[15] & !CLK_COUNT[16] & !CLK_COUNT[14] & !CLK_COUNT[13];
+
+
+--CLK_COUNT[20] is CLK_COUNT[20]
+--operation mode is normal
+
+CLK_COUNT[20]_lut_out = A1L921 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[20] = DFFE(CLK_COUNT[20]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[19] is CLK_COUNT[19]
+--operation mode is normal
+
+CLK_COUNT[19]_lut_out = A1L721 & A1L251 # !A1L651 # !A1L551;
+CLK_COUNT[19] = DFFE(CLK_COUNT[19]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[18] is CLK_COUNT[18]
+--operation mode is normal
+
+CLK_COUNT[18]_lut_out = A1L521;
+CLK_COUNT[18] = DFFE(CLK_COUNT[18]_lut_out, !CLK, , , !RESET);
+
+
+--CLK_COUNT[17] is CLK_COUNT[17]
+--operation mode is normal
+
+CLK_COUNT[17]_lut_out = A1L321;
+CLK_COUNT[17] = DFFE(CLK_COUNT[17]_lut_out, !CLK, , , !RESET);
+
+
+--A1L651 is reduce_nor~340
+--operation mode is normal
+
+A1L651 = (CLK_COUNT[20] & CLK_COUNT[19] & !CLK_COUNT[18] & !CLK_COUNT[17]) & CASCADE(A1L451);
+
+
+--A1L531 is add~518
+--operation mode is arithmetic
+
+A1L531 = CLK_COUNT[23] $ (A1L431);
+
+--A1L631 is add~518COUT
+--operation mode is arithmetic
+
+A1L631 = CARRY(!A1L431 # !CLK_COUNT[23]);
+
+
+--A1L731 is add~519
+--operation mode is arithmetic
+
+A1L731 = CLK_COUNT[24] $ (!A1L631);
+
+--A1L831 is add~519COUT
+--operation mode is arithmetic
+
+A1L831 = CARRY(CLK_COUNT[24] & !A1L631);
+
+
+--A1L331 is add~517
+--operation mode is arithmetic
+
+A1L331 = CLK_COUNT[22] $ (!A1L231);
+
+--A1L431 is add~517COUT
+--operation mode is arithmetic
+
+A1L431 = CARRY(CLK_COUNT[22] & !A1L231);
+
+
+--A1L131 is add~516
+--operation mode is arithmetic
+
+A1L131 = CLK_COUNT[21] $ (A1L031);
+
+--A1L231 is add~516COUT
+--operation mode is arithmetic
+
+A1L231 = CARRY(!A1L031 # !CLK_COUNT[21]);
+
+
+--A1L541 is add~523
+--operation mode is normal
+
+A1L541 = CLK_COUNT[28] $ (!A1L441);
+
+
+--A1L341 is add~522
+--operation mode is arithmetic
+
+A1L341 = CLK_COUNT[27] $ (A1L241);
+
+--A1L441 is add~522COUT
+--operation mode is arithmetic
+
+A1L441 = CARRY(!A1L241 # !CLK_COUNT[27]);
+
+
+--A1L141 is add~521
+--operation mode is arithmetic
+
+A1L141 = CLK_COUNT[26] $ (!A1L041);
+
+--A1L241 is add~521COUT
+--operation mode is arithmetic
+
+A1L241 = CARRY(CLK_COUNT[26] & !A1L041);
+
+
+--A1L931 is add~520
+--operation mode is arithmetic
+
+A1L931 = CLK_COUNT[25] $ (A1L831);
+
+--A1L041 is add~520COUT
+--operation mode is arithmetic
+
+A1L041 = CARRY(!A1L831 # !CLK_COUNT[25]);
+
+
+--A1L911 is add~510
+--operation mode is arithmetic
+
+A1L911 = CLK_COUNT[15] $ (A1L811);
+
+--A1L021 is add~510COUT
+--operation mode is arithmetic
+
+A1L021 = CARRY(!A1L811 # !CLK_COUNT[15]);
+
+
+--A1L121 is add~511
+--operation mode is arithmetic
+
+A1L121 = CLK_COUNT[16] $ (!A1L021);
+
+--A1L221 is add~511COUT
+--operation mode is arithmetic
+
+A1L221 = CARRY(CLK_COUNT[16] & !A1L021);
+
+
+--A1L711 is add~509
+--operation mode is arithmetic
+
+A1L711 = CLK_COUNT[14] $ (!A1L611);
+
+--A1L811 is add~509COUT
+--operation mode is arithmetic
+
+A1L811 = CARRY(CLK_COUNT[14] & !A1L611);
+
+
+--A1L511 is add~508
+--operation mode is arithmetic
+
+A1L511 = CLK_COUNT[13] $ (A1L411);
+
+--A1L611 is add~508COUT
+--operation mode is arithmetic
+
+A1L611 = CARRY(!A1L411 # !CLK_COUNT[13]);
+
+
+--A1L921 is add~515
+--operation mode is arithmetic
+
+A1L921 = CLK_COUNT[20] $ (!A1L821);
+
+--A1L031 is add~515COUT
+--operation mode is arithmetic
+
+A1L031 = CARRY(CLK_COUNT[20] & !A1L821);
+
+
+--A1L721 is add~514
+--operation mode is arithmetic
+
+A1L721 = CLK_COUNT[19] $ (A1L621);
+
+--A1L821 is add~514COUT
+--operation mode is arithmetic
+
+A1L821 = CARRY(!A1L621 # !CLK_COUNT[19]);
+
+
+--A1L521 is add~513
+--operation mode is arithmetic
+
+A1L521 = CLK_COUNT[18] $ (!A1L421);
+
+--A1L621 is add~513COUT
+--operation mode is arithmetic
+
+A1L621 = CARRY(CLK_COUNT[18] & !A1L421);
+
+
+--A1L321 is add~512
+--operation mode is arithmetic
+
+A1L321 = CLK_COUNT[17] $ (A1L221);
+
+--A1L421 is add~512COUT
+--operation mode is arithmetic
+
+A1L421 = CARRY(!A1L221 # !CLK_COUNT[17]);
+
+
+--RESET is RESET
+--operation mode is input
+
+RESET = INPUT();
+
+
+--CLK is CLK
+--operation mode is input
+
+CLK = INPUT();
+
+
+--SEG_C[6] is SEG_C[6]
+--operation mode is output
+
+SEG_C[6] = OUTPUT(B1_SEG_DEC[6]);
+
+
+--SEG_C[5] is SEG_C[5]
+--operation mode is output
+
+SEG_C[5] = OUTPUT(B1_SEG_DEC[5]);
+
+
+--SEG_C[4] is SEG_C[4]
+--operation mode is output
+
+SEG_C[4] = OUTPUT(B1_SEG_DEC[4]);
+
+
+--SEG_C[3] is SEG_C[3]
+--operation mode is output
+
+SEG_C[3] = OUTPUT(B1_SEG_DEC[3]);
+
+
+--SEG_C[2] is SEG_C[2]
+--operation mode is output
+
+SEG_C[2] = OUTPUT(B1_SEG_DEC[2]);
+
+
+--SEG_C[1] is SEG_C[1]
+--operation mode is output
+
+SEG_C[1] = OUTPUT(B1_SEG_DEC[1]);
+
+
+--SEG_C[0] is SEG_C[0]
+--operation mode is output
+
+SEG_C[0] = OUTPUT(B1_SEG_DEC[0]);
+
+
+--SEG_SEL[7] is SEG_SEL[7]
+--operation mode is output
+
+SEG_SEL[7] = OUTPUT(VCC);
+
+
+--SEG_SEL[6] is SEG_SEL[6]
+--operation mode is output
+
+SEG_SEL[6] = OUTPUT(VCC);
+
+
+--SEG_SEL[5] is SEG_SEL[5]
+--operation mode is output
+
+SEG_SEL[5] = OUTPUT(VCC);
+
+
+--SEG_SEL[4] is SEG_SEL[4]
+--operation mode is output
+
+SEG_SEL[4] = OUTPUT(VCC);
+
+
+--SEG_SEL[3] is SEG_SEL[3]
+--operation mode is output
+
+SEG_SEL[3] = OUTPUT(VCC);
+
+
+--SEG_SEL[2] is SEG_SEL[2]
+--operation mode is output
+
+SEG_SEL[2] = OUTPUT(SEG_SEL[2]$latch);
+
+
+--SEG_SEL[1] is SEG_SEL[1]
+--operation mode is output
+
+SEG_SEL[1] = OUTPUT(SEG_SEL[1]$latch);
+
+
+--SEG_SEL[0] is SEG_SEL[0]
+--operation mode is output
+
+SEG_SEL[0] = OUTPUT(SEG_SEL[0]$latch);
+
+
