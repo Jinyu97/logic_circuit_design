@@ -1,0 +1,13 @@
+Flow Status : Successful - Wed Mar 28 12:17:56 2018
+Quartus II Version : 4.2 Build 157 12/07/2004 SJ Full Version
+Revision Name : f_adder_1
+Top-level Entity Name : f_adder_1
+Family : EXCALIBUR_ARM
+Device : EPXA4F672C3
+Timing Models : Final
+Met timing requirements : N/A
+Total logic elements : 2 / 16,640 ( < 1 % )
+Total pins : 5 / 463 ( 1 % )
+Total virtual pins : 0
+Total memory bits : 0 / 212,992 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
