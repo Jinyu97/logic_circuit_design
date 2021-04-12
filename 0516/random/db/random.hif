@@ -1,0 +1,2631 @@
+Version 4.2 Build 157 12/07/2004 SJ Full Version
+15
+785
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+VRSM_ON
+VHSM_ON
+RETIME_OFF
+REMAP_OFF
+0
+-- Start Partition --
+|
+ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP
+Off
+ADV_NETLIST_OPT_SYNTH_GATE_RETIME
+Off
+STATE_MACHINE_PROCESSING
+Auto
+STRATIXII_OPTIMIZATION_TECHNIQUE
+Balanced
+CYCLONE_OPTIMIZATION_TECHNIQUE
+Balanced
+CYCLONEII_OPTIMIZATION_TECHNIQUE
+Balanced
+STRATIX_OPTIMIZATION_TECHNIQUE
+Balanced
+MAXII_OPTIMIZATION_TECHNIQUE
+Balanced
+----
+-- End Partition --
+# entity
+lpm_divide
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_divide.tdf
+1101741714
+6
+# storage
+db|random.(1).cnf
+db|random.(1).cnf
+# user_parameter {
+LPM_WIDTHN
+7
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHD
+4
+PARAMETER_UNKNOWN
+USR
+LPM_NREPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_DREPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_REMAINDERPOSITIVE
+TRUE
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+denom0
+denom1
+denom2
+denom3
+numer0
+numer1
+numer2
+numer3
+numer4
+numer5
+numer6
+quotient0
+quotient1
+quotient2
+quotient3
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|abs_divider.inc
+1094863960
+c:|altera|quartus42|libraries|megafunctions|sign_div_unsign.inc
+1094867328
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+sign_div_unsign
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|sign_div_unsign.tdf
+1101741714
+6
+# storage
+db|random.(2).cnf
+db|random.(2).cnf
+# user_parameter {
+NUM_WIDTH
+7
+PARAMETER_UNKNOWN
+USR
+DEN_WIDTH
+4
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+USR
+NUM_REPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+DEN_REPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+numerator0
+numerator1
+numerator2
+numerator3
+numerator4
+numerator5
+numerator6
+denominator0
+denominator1
+denominator2
+denominator3
+quotient0
+quotient1
+quotient2
+quotient3
+quotient4
+quotient5
+quotient6
+remainder0
+remainder1
+remainder2
+remainder3
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|alt_u_div.inc
+1094864514
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.inc
+1094866282
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+alt_u_div
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|alt_u_div.tdf
+1101741714
+6
+# storage
+db|random.(3).cnf
+db|random.(3).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+WIDTH_N
+7
+PARAMETER_UNKNOWN
+USR
+WIDTH_D
+4
+PARAMETER_UNKNOWN
+USR
+WIDTH_Q
+7
+PARAMETER_UNKNOWN
+USR
+WIDTH_R
+4
+PARAMETER_UNKNOWN
+USR
+WIDTH_D_MIN
+1
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+USR
+PIPELINE_DELAY
+3
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+numerator0
+numerator1
+numerator2
+numerator3
+numerator4
+numerator5
+numerator6
+denominator0
+denominator1
+denominator2
+denominator3
+quotient0
+quotient1
+quotient2
+quotient3
+quotient4
+quotient5
+quotient6
+remainder0
+remainder1
+remainder2
+remainder3
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.inc
+1094866282
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+c:|altera|quartus42|libraries|megafunctions|alt_nonrestoring_divide.inc
+1094867996
+}
+# end
+# entity
+lpm_add_sub
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.tdf
+1101741708
+6
+# storage
+db|random.(4).cnf
+db|random.(4).cnf
+# user_parameter {
+LPM_WIDTH
+1
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_k0d
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+dataa0
+datab0
+result0
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|look_add.inc
+1094866240
+c:|altera|quartus42|libraries|megafunctions|bypassff.inc
+1094865794
+c:|altera|quartus42|libraries|megafunctions|altshift.inc
+1094865290
+c:|altera|quartus42|libraries|megafunctions|alt_stratix_add_sub.inc
+1094864426
+c:|altera|quartus42|libraries|megafunctions|alt_mercury_add_sub.inc
+1094864410
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+addcore
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|addcore.tdf
+1101741708
+6
+# storage
+db|random.(5).cnf
+db|random.(5).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+1
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+dataa0
+datab0
+result0
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.inc
+1094863716
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(6).cnf
+db|random.(6).cnf
+# user_parameter {
+WIDTH
+1
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sout0
+}
+# end
+# entity
+altshift
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|altshift.tdf
+1101741716
+6
+# storage
+db|random.(7).cnf
+db|random.(7).cnf
+# user_parameter {
+WIDTH
+1
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+data0
+result0
+}
+# end
+# entity
+lpm_add_sub
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.tdf
+1101741708
+6
+# storage
+db|random.(8).cnf
+db|random.(8).cnf
+# user_parameter {
+LPM_WIDTH
+2
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_l0d
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+dataa0
+dataa1
+datab0
+datab1
+result0
+result1
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|look_add.inc
+1094866240
+c:|altera|quartus42|libraries|megafunctions|bypassff.inc
+1094865794
+c:|altera|quartus42|libraries|megafunctions|altshift.inc
+1094865290
+c:|altera|quartus42|libraries|megafunctions|alt_stratix_add_sub.inc
+1094864426
+c:|altera|quartus42|libraries|megafunctions|alt_mercury_add_sub.inc
+1094864410
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+addcore
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|addcore.tdf
+1101741708
+6
+# storage
+db|random.(9).cnf
+db|random.(9).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+2
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+dataa0
+dataa1
+datab0
+datab1
+result0
+result1
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.inc
+1094863716
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(10).cnf
+db|random.(10).cnf
+# user_parameter {
+WIDTH
+2
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sout0
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(11).cnf
+db|random.(11).cnf
+# user_parameter {
+WIDTH
+2
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sin1
+sout0
+sout1
+}
+# end
+# entity
+altshift
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|altshift.tdf
+1101741716
+6
+# storage
+db|random.(12).cnf
+db|random.(12).cnf
+# user_parameter {
+WIDTH
+2
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+data0
+data1
+result0
+result1
+}
+# end
+# entity
+lpm_add_sub
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.tdf
+1101741708
+6
+# storage
+db|random.(13).cnf
+db|random.(13).cnf
+# user_parameter {
+LPM_WIDTH
+3
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_m0d
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+datab0
+datab1
+datab2
+result0
+result1
+result2
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|look_add.inc
+1094866240
+c:|altera|quartus42|libraries|megafunctions|bypassff.inc
+1094865794
+c:|altera|quartus42|libraries|megafunctions|altshift.inc
+1094865290
+c:|altera|quartus42|libraries|megafunctions|alt_stratix_add_sub.inc
+1094864426
+c:|altera|quartus42|libraries|megafunctions|alt_mercury_add_sub.inc
+1094864410
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+addcore
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|addcore.tdf
+1101741708
+6
+# storage
+db|random.(14).cnf
+db|random.(14).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+3
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+datab0
+datab1
+datab2
+result0
+result1
+result2
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.inc
+1094863716
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(15).cnf
+db|random.(15).cnf
+# user_parameter {
+WIDTH
+3
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sout0
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(16).cnf
+db|random.(16).cnf
+# user_parameter {
+WIDTH
+3
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+1
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sin1
+sin2
+cin0
+cin1
+cin2
+sout0
+sout1
+sout2
+cout0
+cout1
+cout2
+}
+# end
+# entity
+altshift
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|altshift.tdf
+1101741716
+6
+# storage
+db|random.(17).cnf
+db|random.(17).cnf
+# user_parameter {
+WIDTH
+3
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+data0
+data1
+data2
+result0
+result1
+result2
+}
+# end
+# entity
+lpm_add_sub
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.tdf
+1101741708
+6
+# storage
+db|random.(18).cnf
+db|random.(18).cnf
+# user_parameter {
+LPM_WIDTH
+4
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_n0d
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+dataa3
+datab0
+datab1
+datab2
+datab3
+result0
+result1
+result2
+result3
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|look_add.inc
+1094866240
+c:|altera|quartus42|libraries|megafunctions|bypassff.inc
+1094865794
+c:|altera|quartus42|libraries|megafunctions|altshift.inc
+1094865290
+c:|altera|quartus42|libraries|megafunctions|alt_stratix_add_sub.inc
+1094864426
+c:|altera|quartus42|libraries|megafunctions|alt_mercury_add_sub.inc
+1094864410
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+addcore
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|addcore.tdf
+1101741708
+6
+# storage
+db|random.(19).cnf
+db|random.(19).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+4
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+dataa3
+datab0
+datab1
+datab2
+datab3
+result0
+result1
+result2
+result3
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.inc
+1094863716
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(20).cnf
+db|random.(20).cnf
+# user_parameter {
+WIDTH
+4
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sout0
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(21).cnf
+db|random.(21).cnf
+# user_parameter {
+WIDTH
+4
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+1
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sin1
+sin2
+sin3
+cin0
+cin1
+cin2
+cin3
+sout0
+sout1
+sout2
+sout3
+cout0
+cout1
+cout2
+cout3
+}
+# end
+# entity
+altshift
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|altshift.tdf
+1101741716
+6
+# storage
+db|random.(22).cnf
+db|random.(22).cnf
+# user_parameter {
+WIDTH
+4
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+data0
+data1
+data2
+data3
+result0
+result1
+result2
+result3
+}
+# end
+# entity
+lpm_add_sub
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.tdf
+1101741708
+6
+# storage
+db|random.(23).cnf
+db|random.(23).cnf
+# user_parameter {
+LPM_WIDTH
+5
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_o0d
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+dataa3
+dataa4
+datab0
+datab1
+datab2
+datab3
+datab4
+result0
+result1
+result2
+result3
+result4
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|look_add.inc
+1094866240
+c:|altera|quartus42|libraries|megafunctions|bypassff.inc
+1094865794
+c:|altera|quartus42|libraries|megafunctions|altshift.inc
+1094865290
+c:|altera|quartus42|libraries|megafunctions|alt_stratix_add_sub.inc
+1094864426
+c:|altera|quartus42|libraries|megafunctions|alt_mercury_add_sub.inc
+1094864410
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+addcore
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|addcore.tdf
+1101741708
+6
+# storage
+db|random.(24).cnf
+db|random.(24).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+5
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+dataa3
+dataa4
+datab0
+datab1
+datab2
+datab3
+datab4
+result0
+result1
+result2
+result3
+result4
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.inc
+1094863716
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(25).cnf
+db|random.(25).cnf
+# user_parameter {
+WIDTH
+5
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+0
+PARAMETER_UNKNOWN
+DEF
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sout0
+}
+# end
+# entity
+a_csnbuffer
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.tdf
+1101741708
+6
+# storage
+db|random.(26).cnf
+db|random.(26).cnf
+# user_parameter {
+WIDTH
+5
+PARAMETER_UNKNOWN
+USR
+NEED_CARRY
+1
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+sin0
+sin1
+sin2
+sin3
+sin4
+cin0
+cin1
+cin2
+cin3
+cin4
+sout0
+sout1
+sout2
+sout3
+sout4
+cout0
+cout1
+cout2
+cout3
+cout4
+}
+# end
+# entity
+altshift
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|altshift.tdf
+1101741716
+6
+# storage
+db|random.(27).cnf
+db|random.(27).cnf
+# user_parameter {
+WIDTH
+5
+PARAMETER_UNKNOWN
+USR
+DEPTH
+0
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+data0
+data1
+data2
+data3
+data4
+result0
+result1
+result2
+result3
+result4
+}
+# end
+# entity
+lpm_add_sub
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.tdf
+1101741708
+6
+# storage
+db|random.(28).cnf
+db|random.(28).cnf
+# user_parameter {
+LPM_WIDTH
+4
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+DEF
+LPM_DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+ONE_INPUT_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+DEF
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+REGISTERED_AT_END
+0
+PARAMETER_UNKNOWN
+DEF
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+USE_WYS
+OFF
+PARAMETER_UNKNOWN
+DEF
+STYLE
+FAST
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+add_sub_n6c
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+cin
+dataa0
+dataa1
+dataa2
+dataa3
+datab0
+datab1
+datab2
+datab3
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|look_add.inc
+1094866240
+c:|altera|quartus42|libraries|megafunctions|bypassff.inc
+1094865794
+c:|altera|quartus42|libraries|megafunctions|altshift.inc
+1094865290
+c:|altera|quartus42|libraries|megafunctions|alt_stratix_add_sub.inc
+1094864426
+c:|altera|quartus42|libraries|megafunctions|alt_mercury_add_sub.inc
+1094864410
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+addcore
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|addcore.tdf
+1101741708
+6
+# storage
+db|random.(29).cnf
+db|random.(29).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+off
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+width
+4
+PARAMETER_UNKNOWN
+USR
+REPRESENTATION
+SIGNED
+PARAMETER_UNKNOWN
+USR
+DIRECTION
+SUB
+PARAMETER_UNKNOWN
+USR
+USE_CS_BUFFERS
+1
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+dataa0
+dataa1
+dataa2
+dataa3
+datab0
+datab1
+datab2
+datab3
+cin
+result0
+result1
+result2
+result3
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|addcore.inc
+1094863994
+c:|altera|quartus42|libraries|megafunctions|a_csnbuffer.inc
+1094863716
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+lpm_divide
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_divide.tdf
+1101741714
+6
+# storage
+db|random.(30).cnf
+db|random.(30).cnf
+# user_parameter {
+LPM_WIDTHN
+7
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHD
+4
+PARAMETER_UNKNOWN
+USR
+LPM_NREPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_DREPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_REMAINDERPOSITIVE
+TRUE
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+OPTIMIZE_FOR_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+denom0
+denom1
+denom2
+denom3
+numer0
+numer1
+numer2
+numer3
+numer4
+numer5
+numer6
+remain0
+remain1
+remain2
+remain3
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|abs_divider.inc
+1094863960
+c:|altera|quartus42|libraries|megafunctions|sign_div_unsign.inc
+1094867328
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+lpm_counter
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_counter.tdf
+1101741712
+6
+# storage
+db|random.(33).cnf
+db|random.(33).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTH
+14
+PARAMETER_UNKNOWN
+USR
+LPM_DIRECTION
+UP
+PARAMETER_UNKNOWN
+USR
+LPM_MODULUS
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_AVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+LPM_SVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+NOT_GATE_PUSH_BACK
+ON
+NOT_GATE_PUSH_BACK
+USR
+CARRY_CNT_EN
+SMART
+PARAMETER_UNKNOWN
+DEF
+LABWIDE_SCLR
+ON
+PARAMETER_UNKNOWN
+DEF
+USE_NEW_VERSION
+TRUE
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+NOTHING
+PARAMETER_UNKNOWN
+DEF
+}
+# used_port {
+aclr
+clock
+q0
+q10
+q11
+q12
+q13
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+q9
+sclr
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|lpm_constant.inc
+1094866452
+c:|altera|quartus42|libraries|megafunctions|lpm_decode.inc
+1094866500
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.inc
+1094866282
+c:|altera|quartus42|libraries|megafunctions|cmpconst.inc
+1094865852
+c:|altera|quartus42|libraries|megafunctions|lpm_compare.inc
+1094866426
+c:|altera|quartus42|libraries|megafunctions|lpm_counter.inc
+1094866476
+c:|altera|quartus42|libraries|megafunctions|dffeea.inc
+1094866040
+c:|altera|quartus42|libraries|megafunctions|alt_synch_counter.inc
+1094864484
+c:|altera|quartus42|libraries|megafunctions|alt_synch_counter_f.inc
+1094864500
+c:|altera|quartus42|libraries|megafunctions|alt_counter_f10ke.inc
+1094864100
+c:|altera|quartus42|libraries|megafunctions|alt_counter_stratix.inc
+1094864142
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+alt_synch_counter
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|alt_synch_counter.tdf
+1101741712
+6
+# storage
+db|random.(34).cnf
+db|random.(34).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTH
+14
+PARAMETER_UNKNOWN
+USR
+LPM_DIRECTION
+UP
+PARAMETER_UNKNOWN
+USR
+LPM_MODULUS
+0
+PARAMETER_UNKNOWN
+USR
+LPM_SVALUE
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_AVALUE
+0
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CASCADE_CHAIN_LENGTH
+2
+CASCADE_CHAIN_LENGTH
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+clock
+aclr
+sclr
+q0
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+q9
+q10
+q11
+q12
+q13
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|mercury_lcell.inc
+1094867050
+c:|altera|quartus42|libraries|megafunctions|apex20ke_lcell.inc
+1094865504
+c:|altera|quartus42|libraries|megafunctions|apex20k_lcell.inc
+1094865410
+c:|altera|quartus42|libraries|megafunctions|flex6k_lcell.inc
+1094866176
+c:|altera|quartus42|libraries|megafunctions|lpm_constant.inc
+1094866452
+c:|altera|quartus42|libraries|megafunctions|lpm_compare.inc
+1094866426
+c:|altera|quartus42|libraries|megafunctions|alt_asynch_counter.inc
+1094864050
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+random
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+random.v
+1526890516
+7
+# storage
+db|random.(0).cnf
+db|random.(0).cnf
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+PRESERVE_REGISTER
+OFF
+DUP_REG_EXTRACTION
+ON
+DUP_LOGIC_EXTRACTION
+ON
+}
+# end
+# entity
+term
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+random.v
+1526890516
+7
+# storage
+db|random.(31).cnf
+db|random.(31).cnf
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+PRESERVE_REGISTER
+OFF
+DUP_REG_EXTRACTION
+ON
+DUP_LOGIC_EXTRACTION
+ON
+}
+# end
+# entity
+SEG_DEC
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+random.v
+1526890516
+7
+# storage
+db|random.(32).cnf
+db|random.(32).cnf
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+PRESERVE_REGISTER
+OFF
+DUP_REG_EXTRACTION
+ON
+DUP_LOGIC_EXTRACTION
+ON
+}
+# end
+# entity
+lpm_counter
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|lpm_counter.tdf
+1101741712
+6
+# storage
+db|random.(35).cnf
+db|random.(35).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTH
+52
+PARAMETER_UNKNOWN
+USR
+LPM_DIRECTION
+UP
+PARAMETER_UNKNOWN
+USR
+LPM_MODULUS
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_AVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+LPM_SVALUE
+UNUSED
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+NOT_GATE_PUSH_BACK
+ON
+NOT_GATE_PUSH_BACK
+USR
+CARRY_CNT_EN
+SMART
+PARAMETER_UNKNOWN
+DEF
+LABWIDE_SCLR
+ON
+PARAMETER_UNKNOWN
+DEF
+USE_NEW_VERSION
+TRUE
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+NOTHING
+PARAMETER_UNKNOWN
+DEF
+}
+# used_port {
+aclr
+clock
+q0
+q10
+q11
+q12
+q13
+q14
+q15
+q16
+q17
+q18
+q19
+q1
+q20
+q21
+q22
+q23
+q24
+q25
+q26
+q27
+q28
+q29
+q2
+q30
+q31
+q32
+q33
+q34
+q35
+q36
+q37
+q38
+q39
+q3
+q40
+q41
+q42
+q43
+q44
+q45
+q46
+q47
+q48
+q49
+q4
+q50
+q51
+q5
+q6
+q7
+q8
+q9
+sclr
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|lpm_constant.inc
+1094866452
+c:|altera|quartus42|libraries|megafunctions|lpm_decode.inc
+1094866500
+c:|altera|quartus42|libraries|megafunctions|lpm_add_sub.inc
+1094866282
+c:|altera|quartus42|libraries|megafunctions|cmpconst.inc
+1094865852
+c:|altera|quartus42|libraries|megafunctions|lpm_compare.inc
+1094866426
+c:|altera|quartus42|libraries|megafunctions|lpm_counter.inc
+1094866476
+c:|altera|quartus42|libraries|megafunctions|dffeea.inc
+1094866040
+c:|altera|quartus42|libraries|megafunctions|alt_synch_counter.inc
+1094864484
+c:|altera|quartus42|libraries|megafunctions|alt_synch_counter_f.inc
+1094864500
+c:|altera|quartus42|libraries|megafunctions|alt_counter_f10ke.inc
+1094864100
+c:|altera|quartus42|libraries|megafunctions|alt_counter_stratix.inc
+1094864142
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# entity
+alt_synch_counter
+# case_insensitive
+# source_file
+c:|altera|quartus42|libraries|megafunctions|alt_synch_counter.tdf
+1101741712
+6
+# storage
+db|random.(36).cnf
+db|random.(36).cnf
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTH
+52
+PARAMETER_UNKNOWN
+USR
+LPM_DIRECTION
+UP
+PARAMETER_UNKNOWN
+USR
+LPM_MODULUS
+0
+PARAMETER_UNKNOWN
+USR
+LPM_SVALUE
+0
+PARAMETER_UNKNOWN
+DEF
+LPM_AVALUE
+0
+PARAMETER_UNKNOWN
+DEF
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+CASCADE_CHAIN_LENGTH
+2
+CASCADE_CHAIN_LENGTH
+USR
+CARRY_CHAIN_LENGTH
+48
+CARRY_CHAIN_LENGTH
+USR
+DEVICE_FAMILY
+EXCALIBUR_ARM
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+clock
+aclr
+sclr
+q0
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+q9
+q10
+q11
+q12
+q13
+q14
+q15
+q16
+q17
+q18
+q19
+q20
+q21
+q22
+q23
+q24
+q25
+q26
+q27
+q28
+q29
+q30
+q31
+q32
+q33
+q34
+q35
+q36
+q37
+q38
+q39
+q40
+q41
+q42
+q43
+q44
+q45
+q46
+q47
+q48
+q49
+q50
+q51
+cout
+}
+# include_file {
+c:|altera|quartus42|libraries|megafunctions|mercury_lcell.inc
+1094867050
+c:|altera|quartus42|libraries|megafunctions|apex20ke_lcell.inc
+1094865504
+c:|altera|quartus42|libraries|megafunctions|apex20k_lcell.inc
+1094865410
+c:|altera|quartus42|libraries|megafunctions|flex6k_lcell.inc
+1094866176
+c:|altera|quartus42|libraries|megafunctions|lpm_constant.inc
+1094866452
+c:|altera|quartus42|libraries|megafunctions|lpm_compare.inc
+1094866426
+c:|altera|quartus42|libraries|megafunctions|alt_asynch_counter.inc
+1094864050
+c:|altera|quartus42|libraries|megafunctions|aglobal42.inc
+1101741676
+}
+# end
+# complete
+
