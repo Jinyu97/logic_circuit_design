@@ -1,0 +1,15 @@
+D:/lyj/OR/OR.v {1 {vlog -work work D:/lyj/OR/OR.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module OR
+
+Top level modules:
+	OR
+
+} {} {}} D:/lyj/OR/OR_tb.v {1 {vlog -work work D:/lyj/OR/OR_tb.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module OR_tb
+
+Top level modules:
+	OR_tb
+
+} {} {}}

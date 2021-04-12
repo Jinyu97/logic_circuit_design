@@ -1,0 +1,17 @@
+D:/lyj/RCC/RCC.v {1 {vlog -work work D:/lyj/RCC/RCC.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module RCC
+-- Compiling module T_FF
+-- Compiling module D_FF
+
+Top level modules:
+	RCC
+
+} {} {}} D:/lyj/RCC/RCC_tb.v {1 {vlog -work work D:/lyj/RCC/RCC_tb.v
+Model Technology ModelSim SE vlog 5.7g Compiler 2003.10 Oct 10 2003
+-- Compiling module RCC_tb
+
+Top level modules:
+	RCC_tb
+
+} {} {}}
