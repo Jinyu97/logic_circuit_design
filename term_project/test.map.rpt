@@ -1,0 +1,487 @@
+Analysis & Synthesis report for test
+Mon Jun 04 15:51:37 2018
+Version 4.2 Build 157 12/07/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Hierarchy
+  5. User-Specified and Inferred Latches
+  6. General Register Statistics
+  7. Inverted Register Statistics
+  8. WYSIWYG Cells
+  9. Analysis & Synthesis Resource Utilization by Entity
+ 10. Analysis & Synthesis Equations
+ 11. Analysis & Synthesis Source Files Read
+ 12. Analysis & Synthesis Resource Usage Summary
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Mon Jun 04 15:51:37 2018    ;
+; Quartus II Version          ; 4.2 Build 157 12/07/2004 SJ Full Version ;
+; Revision Name               ; test                                     ;
+; Top-level Entity Name       ; test                                     ;
+; Family                      ; EXCALIBUR_ARM                            ;
+; Total logic elements        ; 470                                      ;
+; Total pins                  ; 34                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                              ;
++--------------------------------------------------------------------------------------------+---------------+---------------+
+; Option                                                                                     ; Setting       ; Default Value ;
++--------------------------------------------------------------------------------------------+---------------+---------------+
+; Device                                                                                     ; EPXA4F672C3   ;               ;
+; Family name                                                                                ; EXCALIBUR_ARM ; Stratix       ;
+; Use smart compilation                                                                      ; Normal        ; Normal        ;
+; Create Debugging Nodes for IP Cores                                                        ; off           ; off           ;
+; Preserve fewer node names                                                                  ; On            ; On            ;
+; Disable OpenCore Plus hardware evaluation                                                  ; Off           ; Off           ;
+; Verilog Version                                                                            ; Verilog_2001  ; Verilog_2001  ;
+; VHDL Version                                                                               ; VHDL93        ; VHDL93        ;
+; Top-level entity name                                                                      ; test          ; test          ;
+; State Machine Processing                                                                   ; Auto          ; Auto          ;
+; Extract Verilog State Machines                                                             ; On            ; On            ;
+; Extract VHDL State Machines                                                                ; On            ; On            ;
+; NOT Gate Push-Back                                                                         ; On            ; On            ;
+; Power-Up Don't Care                                                                        ; On            ; On            ;
+; Remove Redundant Logic Cells                                                               ; Off           ; Off           ;
+; Remove Duplicate Registers                                                                 ; On            ; On            ;
+; Ignore CARRY Buffers                                                                       ; Off           ; Off           ;
+; Ignore CASCADE Buffers                                                                     ; Off           ; Off           ;
+; Ignore GLOBAL Buffers                                                                      ; Off           ; Off           ;
+; Ignore ROW GLOBAL Buffers                                                                  ; Off           ; Off           ;
+; Ignore LCELL Buffers                                                                       ; Off           ; Off           ;
+; Ignore SOFT Buffers                                                                        ; On            ; On            ;
+; Limit AHDL Integers to 32 Bits                                                             ; Off           ; Off           ;
+; Auto Implement in ROM                                                                      ; Off           ; Off           ;
+; Technology Mapper -- APEX 20K/APEX 20KE/APEX 20KC/APEX II/ARM-based Excalibur              ; LUT           ; LUT           ;
+; Optimization Technique -- APEX 20K/APEX 20KE/APEX 20KC/APEX II/ARM-based Excalibur         ; Balanced      ; Balanced      ;
+; Allow XOR Gate Usage                                                                       ; On            ; On            ;
+; Carry Chain Length                                                                         ; 48            ; 48            ;
+; Cascade Chain Length                                                                       ; 2             ; 2             ;
+; Parallel Expander Chain Length -- APEX 20K/APEX 20KE/APEX 20KC/APEX II/ARM-based Excalibur ; 16            ; 16            ;
+; Auto Carry Chains                                                                          ; On            ; On            ;
+; Auto Parallel Expanders                                                                    ; On            ; On            ;
+; Auto Open-Drain Pins                                                                       ; On            ; On            ;
+; Remove Duplicate Logic                                                                     ; On            ; On            ;
+; Perform WYSIWYG Primitive Resynthesis                                                      ; Off           ; Off           ;
+; Perform gate-level register retiming                                                       ; Off           ; Off           ;
+; Allow register retiming to trade off Tsu/Tco with Fmax                                     ; On            ; On            ;
+; Auto ROM Replacement                                                                       ; On            ; On            ;
+; Auto RAM Replacement                                                                       ; On            ; On            ;
+; Auto Clock Enable Replacement                                                              ; On            ; On            ;
+; Auto Resource Sharing                                                                      ; Off           ; Off           ;
+; Allow Any RAM Size For Recognition                                                         ; Off           ; Off           ;
+; Allow Any ROM Size For Recognition                                                         ; Off           ; Off           ;
+; Allow Any Shift Register Size For Recognition                                              ; Off           ; Off           ;
++--------------------------------------------------------------------------------------------+---------------+---------------+
+
+
++-----------+
+; Hierarchy ;
++-----------+
+test
+ |-- lpm_counter:cnt_rtl_0
+      |-- alt_synch_counter:wysi_counter
+ |-- lpm_counter:countt_rtl_3
+      |-- alt_synch_counter:wysi_counter
+ |-- lpm_mult:mult_rtl_5
+      |-- altshift:external_latency_ffs
+      |-- multcore:mult_core
+           |-- mpar_add:padder
+                |-- lpm_add_sub:adder
+                |-- lpm_add_sub:adder[0]
+                     |-- addcore:adder
+                          |-- a_csnbuffer:cout_node
+                          |-- a_csnbuffer:oflow_node
+                          |-- a_csnbuffer:result_node
+                     |-- altshift:carry_ext_latency_ffs
+                     |-- altshift:oflow_ext_latency_ffs
+                     |-- altshift:result_ext_latency_ffs
+                |-- mpar_add:sub_par_add
+                     |-- lpm_add_sub:adder
+                     |-- lpm_add_sub:adder[0]
+                          |-- addcore:adder
+                               |-- a_csnbuffer:cout_node
+                               |-- a_csnbuffer:oflow_node
+                               |-- a_csnbuffer:result_node
+                          |-- altshift:carry_ext_latency_ffs
+                          |-- altshift:oflow_ext_latency_ffs
+                          |-- altshift:result_ext_latency_ffs
+ |-- lpm_counter:note_rtl_2
+      |-- alt_synch_counter:wysi_counter
+ |-- random:u0
+ |-- display:u1
+      |-- lpm_counter:counts_rtl_1
+           |-- alt_synch_counter:wysi_counter
+      |-- SEG_DEC:k2
+      |-- lpm_divide:mod_rtl_4
+           |-- sign_div_unsign:divider
+                |-- lpm_add_sub:adder
+                     |-- addcore:adder
+                          |-- a_csnbuffer:cout_node
+                          |-- a_csnbuffer:oflow_node
+                          |-- a_csnbuffer:result_node
+                     |-- altshift:carry_ext_latency_ffs
+                     |-- altshift:oflow_ext_latency_ffs
+                     |-- altshift:result_ext_latency_ffs
+                |-- alt_u_div:divider
+                     |-- lpm_add_sub:$00003
+                          |-- addcore:adder
+                               |-- a_csnbuffer:cout_node
+                               |-- a_csnbuffer:oflow_node
+                               |-- a_csnbuffer:result_node
+                          |-- altshift:carry_ext_latency_ffs
+                          |-- altshift:oflow_ext_latency_ffs
+                          |-- altshift:result_ext_latency_ffs
+                     |-- lpm_add_sub:$00005
+                          |-- addcore:adder
+                               |-- a_csnbuffer:cout_node
+                               |-- a_csnbuffer:oflow_node
+                               |-- a_csnbuffer:result_node
+                          |-- altshift:carry_ext_latency_ffs
+                          |-- altshift:oflow_ext_latency_ffs
+                          |-- altshift:result_ext_latency_ffs
+                     |-- lpm_add_sub:$00007
+                          |-- addcore:adder
+                               |-- a_csnbuffer:cout_node
+                               |-- a_csnbuffer:oflow_node
+                               |-- a_csnbuffer:result_node
+                          |-- altshift:carry_ext_latency_ffs
+                          |-- altshift:oflow_ext_latency_ffs
+                          |-- altshift:result_ext_latency_ffs
+                     |-- lpm_add_sub:$00009
+                          |-- addcore:adder
+                               |-- a_csnbuffer:cout_node
+                               |-- a_csnbuffer:oflow_node
+                               |-- a_csnbuffer:result_node
+                          |-- altshift:carry_ext_latency_ffs
+                          |-- altshift:oflow_ext_latency_ffs
+                          |-- altshift:result_ext_latency_ffs
+      |-- change:u2
+      |-- change:u3
+
+
++----------------------------------------------------+
+; User-Specified and Inferred Latches                ;
++-----------------------------------------------+----+
+; Latch Name                                    ;    ;
++-----------------------------------------------+----+
+; display:u1|SEG_DEC:k2|SEG_DEC[6]              ;    ;
+; display:u1|SEG_DEC:k2|SEG_DEC[5]              ;    ;
+; display:u1|SEG_DEC:k2|SEG_DEC[4]              ;    ;
+; display:u1|SEG_DEC:k2|SEG_DEC[3]              ;    ;
+; display:u1|SEG_DEC:k2|SEG_DEC[2]              ;    ;
+; display:u1|SEG_DEC:k2|SEG_DEC[1]              ;    ;
+; display:u1|SEG_DEC:k2|SEG_DEC[0]              ;    ;
+; display:u1|change:u2|out[3]                   ;    ;
+; display:u1|change:u3|out[3]                   ;    ;
+; display:u1|change:u2|out[2]                   ;    ;
+; display:u1|change:u3|out[2]                   ;    ;
+; display:u1|change:u2|out[1]                   ;    ;
+; display:u1|change:u3|out[1]                   ;    ;
+; display:u1|change:u2|out[0]                   ;    ;
+; display:u1|change:u3|out[0]                   ;    ;
+; piezo_cnt[1]                                  ;    ;
+; piezo_cnt[2]                                  ;    ;
+; piezo_cnt[3]                                  ;    ;
+; piezo_cnt[4]                                  ;    ;
+; piezo_cnt[5]                                  ;    ;
+; piezo_cnt[6]                                  ;    ;
+; piezo_cnt[7]                                  ;    ;
+; piezo_cnt[8]                                  ;    ;
+; piezo_cnt[9]                                  ;    ;
+; Number of user-specified and inferred latches ; 24 ;
++-----------------------------------------------+----+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 172   ;
+; Number of registers using Synchronous Clear  ; 35    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 43    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 111   ;
+; Number of registers using Output Enable      ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; display:u1|CLK1                        ; 3       ;
+; random:u0|ranreg[4]                    ; 3       ;
+; random:u0|ranreg[5]                    ; 1       ;
+; random:u0|ranreg[2]                    ; 3       ;
+; random:u0|ranreg[7]                    ; 1       ;
+; random:u0|ranreg[9]                    ; 1       ;
+; random:u0|ranreg[10]                   ; 1       ;
+; random:u0|ranreg[11]                   ; 1       ;
+; random:u0|ranreg[13]                   ; 1       ;
+; Total number of inverted registers = 9 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; WYSIWYG Cells                                                  ;
++--------------------------------------------------------+-------+
+; Statistic                                              ; Value ;
++--------------------------------------------------------+-------+
+; Number of WYSIWYG cells                                ; 178   ;
+; Number of synthesis-generated cells                    ; 292   ;
+; Number of WYSIWYG LUTs                                 ; 178   ;
+; Number of synthesis-generated LUTs                     ; 189   ;
+; Number of WYSIWYG registers                            ; 35    ;
+; Number of synthesis-generated registers                ; 137   ;
+; Number of cells with combinational logic only          ; 298   ;
+; Number of cells with registers only                    ; 103   ;
+; Number of cells with combinational logic and registers ; 69    ;
++--------------------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                    ;
++------------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node                     ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name                                                                                                                          ;
++------------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; |test                                          ; 470 (184)   ; 172          ; 0           ; 34   ; 0            ; 298 (121)    ; 103 (43)          ; 69 (20)          ; 168 (66)        ; |test                                                                                                                                        ;
+;    |display:u1|                                ; 106 (21)    ; 17           ; 0           ; 0    ; 0            ; 89 (18)      ; 3 (3)             ; 14 (0)           ; 19 (0)          ; |test|display:u1                                                                                                                             ;
+;       |SEG_DEC:k2|                             ; 17 (17)     ; 0            ; 0           ; 0    ; 0            ; 17 (17)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |test|display:u1|SEG_DEC:k2                                                                                                                  ;
+;       |change:u2|                              ; 23 (23)     ; 0            ; 0           ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |test|display:u1|change:u2                                                                                                                   ;
+;       |change:u3|                              ; 23 (23)     ; 0            ; 0           ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |test|display:u1|change:u3                                                                                                                   ;
+;       |lpm_counter:counts_rtl_1|               ; 14 (0)      ; 14           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 14 (0)           ; 14 (0)          ; |test|display:u1|lpm_counter:counts_rtl_1                                                                                                    ;
+;          |alt_synch_counter:wysi_counter|      ; 14 (14)     ; 14           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 14 (14)          ; 14 (14)         ; |test|display:u1|lpm_counter:counts_rtl_1|alt_synch_counter:wysi_counter                                                                     ;
+;       |lpm_divide:mod_rtl_4|                   ; 8 (0)       ; 0            ; 0           ; 0    ; 0            ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|display:u1|lpm_divide:mod_rtl_4                                                                                                        ;
+;          |sign_div_unsign:divider|             ; 8 (0)       ; 0            ; 0           ; 0    ; 0            ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|display:u1|lpm_divide:mod_rtl_4|sign_div_unsign:divider                                                                                ;
+;             |alt_u_div:divider|                ; 8 (3)       ; 0            ; 0           ; 0    ; 0            ; 8 (3)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|display:u1|lpm_divide:mod_rtl_4|sign_div_unsign:divider|alt_u_div:divider                                                              ;
+;                |lpm_add_sub:$00009|            ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|display:u1|lpm_divide:mod_rtl_4|sign_div_unsign:divider|alt_u_div:divider|lpm_add_sub:$00009                                           ;
+;                   |addcore:adder|              ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|display:u1|lpm_divide:mod_rtl_4|sign_div_unsign:divider|alt_u_div:divider|lpm_add_sub:$00009|addcore:adder                             ;
+;                      |a_csnbuffer:result_node| ; 5 (5)       ; 0            ; 0           ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 5 (5)           ; |test|display:u1|lpm_divide:mod_rtl_4|sign_div_unsign:divider|alt_u_div:divider|lpm_add_sub:$00009|addcore:adder|a_csnbuffer:result_node     ;
+;    |lpm_counter:cnt_rtl_0|                     ; 10 (0)      ; 10           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 10 (0)           ; 10 (0)          ; |test|lpm_counter:cnt_rtl_0                                                                                                                  ;
+;       |alt_synch_counter:wysi_counter|         ; 10 (10)     ; 10           ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 10 (10)          ; 10 (10)         ; |test|lpm_counter:cnt_rtl_0|alt_synch_counter:wysi_counter                                                                                   ;
+;    |lpm_counter:countt_rtl_3|                  ; 6 (0)       ; 6            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 6 (0)            ; 6 (0)           ; |test|lpm_counter:countt_rtl_3                                                                                                               ;
+;       |alt_synch_counter:wysi_counter|         ; 6 (6)       ; 6            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 6 (6)            ; 6 (6)           ; |test|lpm_counter:countt_rtl_3|alt_synch_counter:wysi_counter                                                                                ;
+;    |lpm_counter:note_rtl_2|                    ; 5 (0)       ; 5            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 5 (0)            ; 5 (0)           ; |test|lpm_counter:note_rtl_2                                                                                                                 ;
+;       |alt_synch_counter:wysi_counter|         ; 5 (5)       ; 5            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 5 (5)            ; 5 (5)           ; |test|lpm_counter:note_rtl_2|alt_synch_counter:wysi_counter                                                                                  ;
+;    |lpm_mult:mult_rtl_5|                       ; 22 (0)      ; 0            ; 0           ; 0    ; 0            ; 22 (0)       ; 0 (0)             ; 0 (0)            ; 10 (0)          ; |test|lpm_mult:mult_rtl_5                                                                                                                    ;
+;       |multcore:mult_core|                     ; 22 (12)     ; 0            ; 0           ; 0    ; 0            ; 22 (12)      ; 0 (0)             ; 0 (0)            ; 10 (0)          ; |test|lpm_mult:mult_rtl_5|multcore:mult_core                                                                                                 ;
+;          |mpar_add:padder|                     ; 10 (0)      ; 0            ; 0           ; 0    ; 0            ; 10 (0)       ; 0 (0)             ; 0 (0)            ; 10 (0)          ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder                                                                                 ;
+;             |lpm_add_sub:adder[0]|             ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                                                            ;
+;                |addcore:adder|                 ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|addcore:adder                                              ;
+;                   |a_csnbuffer:result_node|    ; 5 (5)       ; 0            ; 0           ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 5 (5)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|addcore:adder|a_csnbuffer:result_node                      ;
+;             |mpar_add:sub_par_add|             ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add                                                            ;
+;                |lpm_add_sub:adder[0]|          ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]                                       ;
+;                   |addcore:adder|              ; 5 (0)       ; 0            ; 0           ; 0    ; 0            ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 5 (0)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|addcore:adder                         ;
+;                      |a_csnbuffer:result_node| ; 5 (5)       ; 0            ; 0           ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 5 (5)           ; |test|lpm_mult:mult_rtl_5|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|addcore:adder|a_csnbuffer:result_node ;
+;    |random:u0|                                 ; 137 (137)   ; 71           ; 0           ; 0    ; 0            ; 66 (66)      ; 57 (57)           ; 14 (14)          ; 52 (52)         ; |test|random:u0                                                                                                                              ;
++------------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in D:/test/test.map.eqn.
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                       ;
++----------------------------------+-----------------+-------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Name with Absolute Path                                            ;
++----------------------------------+-----------------+-------------------------------------------------------------------------+
+; test.v                           ; yes             ; D:/test/test.v                                                          ;
+; lpm_counter.tdf                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_counter.tdf             ;
+; lpm_constant.inc                 ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_constant.inc            ;
+; lpm_decode.inc                   ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_decode.inc              ;
+; lpm_add_sub.inc                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_add_sub.inc             ;
+; cmpconst.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/cmpconst.inc                ;
+; lpm_compare.inc                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_compare.inc             ;
+; lpm_counter.inc                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_counter.inc             ;
+; dffeea.inc                       ; yes             ; c:/altera/quartus42/libraries/megafunctions/dffeea.inc                  ;
+; alt_synch_counter.inc            ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_synch_counter.inc       ;
+; alt_synch_counter_f.inc          ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_synch_counter_f.inc     ;
+; alt_counter_f10ke.inc            ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_counter_f10ke.inc       ;
+; alt_counter_stratix.inc          ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_counter_stratix.inc     ;
+; aglobal42.inc                    ; yes             ; c:/altera/quartus42/libraries/megafunctions/aglobal42.inc               ;
+; alt_synch_counter.tdf            ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_synch_counter.tdf       ;
+; mercury_lcell.inc                ; yes             ; c:/altera/quartus42/libraries/megafunctions/mercury_lcell.inc           ;
+; apex20ke_lcell.inc               ; yes             ; c:/altera/quartus42/libraries/megafunctions/apex20ke_lcell.inc          ;
+; apex20k_lcell.inc                ; yes             ; c:/altera/quartus42/libraries/megafunctions/apex20k_lcell.inc           ;
+; flex6k_lcell.inc                 ; yes             ; c:/altera/quartus42/libraries/megafunctions/flex6k_lcell.inc            ;
+; alt_asynch_counter.inc           ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_asynch_counter.inc      ;
+; lpm_divide.tdf                   ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_divide.tdf              ;
+; abs_divider.inc                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/abs_divider.inc             ;
+; sign_div_unsign.inc              ; yes             ; c:/altera/quartus42/libraries/megafunctions/sign_div_unsign.inc         ;
+; sign_div_unsign.tdf              ; yes             ; c:/altera/quartus42/libraries/megafunctions/sign_div_unsign.tdf         ;
+; alt_u_div.inc                    ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_u_div.inc               ;
+; alt_u_div.tdf                    ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_u_div.tdf               ;
+; alt_nonrestoring_divide.inc      ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_nonrestoring_divide.inc ;
+; lpm_add_sub.tdf                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_add_sub.tdf             ;
+; addcore.inc                      ; yes             ; c:/altera/quartus42/libraries/megafunctions/addcore.inc                 ;
+; look_add.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/look_add.inc                ;
+; bypassff.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/bypassff.inc                ;
+; altshift.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/altshift.inc                ;
+; alt_stratix_add_sub.inc          ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_stratix_add_sub.inc     ;
+; alt_mercury_add_sub.inc          ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_mercury_add_sub.inc     ;
+; addcore.tdf                      ; yes             ; c:/altera/quartus42/libraries/megafunctions/addcore.tdf                 ;
+; a_csnbuffer.inc                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/a_csnbuffer.inc             ;
+; a_csnbuffer.tdf                  ; yes             ; c:/altera/quartus42/libraries/megafunctions/a_csnbuffer.tdf             ;
+; altshift.tdf                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/altshift.tdf                ;
+; lpm_mult.tdf                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/lpm_mult.tdf                ;
+; multcore.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/multcore.inc                ;
+; multcore.tdf                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/multcore.tdf                ;
+; csa_add.inc                      ; yes             ; c:/altera/quartus42/libraries/megafunctions/csa_add.inc                 ;
+; mpar_add.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/mpar_add.inc                ;
+; muleabz.inc                      ; yes             ; c:/altera/quartus42/libraries/megafunctions/muleabz.inc                 ;
+; mul_lfrg.inc                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/mul_lfrg.inc                ;
+; mul_boothc.inc                   ; yes             ; c:/altera/quartus42/libraries/megafunctions/mul_boothc.inc              ;
+; alt_ded_mult.inc                 ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_ded_mult.inc            ;
+; alt_ded_mult_y.inc               ; yes             ; c:/altera/quartus42/libraries/megafunctions/alt_ded_mult_y.inc          ;
+; dffpipe.inc                      ; yes             ; c:/altera/quartus42/libraries/megafunctions/dffpipe.inc                 ;
+; mpar_add.tdf                     ; yes             ; c:/altera/quartus42/libraries/megafunctions/mpar_add.tdf                ;
++----------------------------------+-----------------+-------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++-----------------------------------+---------+
+; Resource                          ; Usage   ;
++-----------------------------------+---------+
+; Logic cells                       ; 470     ;
+; Total combinational functions     ; 367     ;
+; Total 4-input functions           ; 128     ;
+; Total 3-input functions           ; 26      ;
+; Total 2-input functions           ; 57      ;
+; Total 1-input functions           ; 149     ;
+; Total 0-input functions           ; 7       ;
+; Combinational cells for routing   ; 0       ;
+; Total registers                   ; 172     ;
+; Total logic cells in carry chains ; 168     ;
+; I/O pins                          ; 34      ;
+; Maximum fan-out node              ; rst     ;
+; Maximum fan-out                   ; 165     ;
+; Total fan-out                     ; 1498    ;
+; Average fan-out                   ; 2.97    ;
++-----------------------------------+---------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 4.2 Build 157 12/07/2004 SJ Full Version
+    Info: Processing started: Mon Jun 04 15:51:35 2018
+Info: Command: quartus_map --import_settings_files=on --export_settings_files=off test -c test
+Warning: This product family is not recommended for new designs. Altera provides newer product families with better cost & performance attributes than ARM-Based Excalibur devices
+Info: Found 5 design units, including 5 entities, in source file test.v
+    Info: Found entity 1: test
+    Info: Found entity 2: random
+    Info: Found entity 3: display
+    Info: Found entity 4: SEG_DEC
+    Info: Found entity 5: change
+Warning: Verilog HDL assignment warning at test.v(50): truncated value with size 9 to match size of target (7)
+Warning: Verilog HDL assignment warning at test.v(66): truncated value with size 9 to match size of target (8)
+Warning: Verilog HDL assignment warning at test.v(80): truncated value with size 7 to match size of target (6)
+Warning: Verilog HDL Always Construct warning at test.v(138): variable "answer" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning: Verilog HDL assignment warning at test.v(145): truncated value with size 6 to match size of target (5)
+Warning: Verilog HDL Always Construct warning at test.v(149): variable piezo_cnt may not be assigned a new value in every possible path through the Always Construct.  Variable piezo_cnt holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: Verilog HDL assignment warning at test.v(196): truncated value with size 11 to match size of target (10)
+Warning: Verilog HDL assignment warning at test.v(315): truncated value with size 15 to match size of target (14)
+Warning: Verilog HDL assignment warning at test.v(319): truncated value with size 3 to match size of target (2)
+Warning: Verilog HDL Always Construct warning at test.v(368): variable out may not be assigned a new value in every possible path through the Always Construct.  Variable out holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: Verilog HDL Always Construct warning at test.v(347): variable SEG_DEC may not be assigned a new value in every possible path through the Always Construct.  Variable SEG_DEC holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Info: Inferred 4 megafunctions from design logic
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=10) from the following logic: "cnt[0]~21"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=14) from the following logic: "display:u1|counts[0]~28"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=5) from the following logic: "note[0]~10"
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=6) from the following logic: "countt[0]~12"
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/lpm_counter.tdf
+    Info: Found entity 1: lpm_counter
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/alt_synch_counter.tdf
+    Info: Found entity 1: alt_synch_counter
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/lpm_divide.tdf
+    Info: Found entity 1: lpm_divide
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/sign_div_unsign.tdf
+    Info: Found entity 1: sign_div_unsign
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/alt_u_div.tdf
+    Info: Found entity 1: alt_u_div
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/lpm_add_sub.tdf
+    Info: Found entity 1: lpm_add_sub
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/addcore.tdf
+    Info: Found entity 1: addcore
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/a_csnbuffer.tdf
+    Info: Found entity 1: a_csnbuffer
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/altshift.tdf
+    Info: Found entity 1: altshift
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/lpm_mult.tdf
+    Info: Found entity 1: lpm_mult
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/multcore.tdf
+    Info: Found entity 1: multcore
+Info: Found 1 design units, including 1 entities, in source file c:/altera/quartus42/libraries/megafunctions/mpar_add.tdf
+    Info: Found entity 1: mpar_add
+Info: Ignored 1 buffer(s)
+    Info: Ignored 1 SOFT buffer(s)
+Info: Duplicate LATCH primitives merged into single LATCH primitive
+    Info: Duplicate LATCH primitives merged into single LATCH primitive "piezo_cnt[6]"
+    Info: Duplicate LATCH primitives merged into single LATCH primitive "piezo_cnt[9]"
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "seg_sel[6]" stuck at VCC
+    Warning: Pin "seg_sel[4]" stuck at VCC
+    Warning: Pin "seg_sel[3]" stuck at VCC
+    Warning: Pin "seg_sel[2]" stuck at VCC
+Info: Implemented 504 device resources after synthesis - the final resource count might be different
+    Info: Implemented 18 input pins
+    Info: Implemented 16 output pins
+    Info: Implemented 470 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Processing ended: Mon Jun 04 15:51:37 2018
+    Info: Elapsed time: 00:00:02
+
+

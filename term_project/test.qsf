@@ -1,0 +1,83 @@
+# Copyright (C) 1991-2004 Altera Corporation
+# Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+# support information,  device programming or simulation file,  and any other
+# associated  documentation or information  provided by  Altera  or a partner
+# under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+# to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+# other  use  of such  megafunction  design,  netlist,  support  information,
+# device programming or simulation file,  or any other  related documentation
+# or information  is prohibited  for  any  other purpose,  including, but not
+# limited to  modification,  reverse engineering,  de-compiling, or use  with
+# any other  silicon devices,  unless such use is  explicitly  licensed under
+# a separate agreement with  Altera  or a megafunction partner.  Title to the
+# intellectual property,  including patents,  copyrights,  trademarks,  trade
+# secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+# support  information,  device programming or simulation file,  or any other
+# related documentation or information provided by  Altera  or a megafunction
+# partner, remains with Altera, the megafunction partner, or their respective
+# licensors. No other licenses, including any licenses needed under any third
+# party's intellectual property, are provided herein.
+
+
+# The default values for assignments are stored in the file
+#		test_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 4.2
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:37:14  MAY 30, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION 4.2
+set_global_assignment -name VERILOG_FILE test.v
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_Y5 -to clk
+set_location_assignment PIN_W20 -to rst
+set_location_assignment PIN_Y3 -to seg_c[0]
+set_location_assignment PIN_Y4 -to seg_c[1]
+set_location_assignment PIN_Y6 -to seg_c[2]
+set_location_assignment PIN_AA1 -to seg_c[3]
+set_location_assignment PIN_AA2 -to seg_c[4]
+set_location_assignment PIN_AA3 -to seg_c[5]
+set_location_assignment PIN_AA10 -to seg_c[6]
+set_location_assignment PIN_AA12 -to seg_sel[0]
+set_location_assignment PIN_AA13 -to seg_sel[1]
+set_location_assignment PIN_AB1 -to seg_sel[2]
+set_location_assignment PIN_AB2 -to seg_sel[3]
+set_location_assignment PIN_AB3 -to seg_sel[4]
+set_location_assignment PIN_AB4 -to seg_sel[5]
+set_location_assignment PIN_AB8 -to seg_sel[6]
+set_location_assignment PIN_AB9 -to seg_sel[7]
+set_location_assignment PIN_AB19 -to sw1[0]
+set_location_assignment PIN_AB20 -to sw1[1]
+set_location_assignment PIN_AB21 -to sw1[2]
+set_location_assignment PIN_AB22 -to sw1[3]
+set_location_assignment PIN_AB23 -to sw1[4]
+set_location_assignment PIN_AB24 -to sw1[5]
+set_location_assignment PIN_AB25 -to sw1[6]
+set_location_assignment PIN_AB26 -to sw1[7]
+set_location_assignment PIN_T25 -to sw10[0]
+set_location_assignment PIN_T24 -to sw10[1]
+set_location_assignment PIN_T22 -to sw10[2]
+set_location_assignment PIN_T21 -to sw10[3]
+set_location_assignment PIN_T20 -to sw10[4]
+set_location_assignment PIN_R26 -to sw10[5]
+set_location_assignment PIN_R25 -to sw10[6]
+set_location_assignment PIN_R24 -to sw10[7]
+set_location_assignment PIN_W1 -to piezo_out
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name FAMILY EXCALIBUR_ARM
+set_global_assignment -name TOP_LEVEL_ENTITY test
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EPXA4F672C3
