@@ -1,0 +1,43 @@
+--B2_S is H_ADDER:H_U1|S at LC_X1_Y1_N4
+--operation mode is normal
+
+B2_S = Cn_1 $ (An $ Bn);
+
+
+--A1L6 is comb~0 at LC_X1_Y1_N7
+--operation mode is normal
+
+A1L6 = Cn_1 & An # Bn # !Cn_1 & An & Bn;
+
+
+--An is An at PIN_Y20
+--operation mode is input
+
+An = INPUT();
+
+
+--Bn is Bn at PIN_W19
+--operation mode is input
+
+Bn = INPUT();
+
+
+--Cn_1 is Cn_1 at PIN_Y21
+--operation mode is input
+
+Cn_1 = INPUT();
+
+
+--Sn is Sn at PIN_AA21
+--operation mode is output
+
+Sn = OUTPUT(B2_S);
+
+
+--Cn is Cn at PIN_U20
+--operation mode is output
+
+Cn = OUTPUT(A1L6);
+
+
+
